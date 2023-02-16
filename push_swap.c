@@ -16,7 +16,8 @@ typedef struct stack {
 */
 
 
-int main(void)
+//int main(void)
+int main(int argc, char **argv)
 {
 	int smallest;
 	// Take arguments from the command line.
@@ -24,7 +25,16 @@ int main(void)
   int stack_b[3];
 	int size_a = 3;
 	int size_b = 0;
-  printf("stack_a begin: ");
+	int i;
+
+	i = 0;
+	printf("argc: %d\n", argc);
+	while (i < argc)
+	{
+		printf("argv[%d]: %s\n", i, argv[i]);
+		i++;
+	}
+	printf("stack_a begin: ");
 	ft_print_stack(stack_a, size_a);
 	// We need now to sort the numbers in the stack A
 	// - We can look for the smallest number, bring it to the top, push it to B
