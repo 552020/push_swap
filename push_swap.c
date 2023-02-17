@@ -38,30 +38,30 @@ int main(int argc, char **argv)
 
 	i = 0;
 	size_a = 0;
-	printf("argc: %d\n", argc);
+	//printf("argc: %d\n", argc);
 	while (i < argc)
 	{
-		printf("argv[%d]: %s\n", i, argv[i]);
+		//printf("argv[%d]: %s\n", i, argv[i]);
 		i++;
 	}
 	// 0.1 Build an array out of the arguments passsed in in the command line
 	// - case 1: $ ARG="4 67 86 89"; push_swap $ARG
 	// - case 2; $ push_swap 4 67 86 89
 	// - case 3: # push_swap // no arguments
-	printf("str_arr: \n");
+	//printf("str_arr: \n");
 	if (argc == 2)
 	{
 		str_arr = ft_split(argv[1], ' ');	
 		i = 0;
 		while (str_arr[i])
 		{
-			printf("str_arr[%d]: %s\n", i, str_arr[i]);
+			//printf("str_arr[%d]: %s\n", i, str_arr[i]);
 			size_a++;
 			i++;
 		}
 		size_b = size_a;
-		printf("size_a: %d\n", size_a);
-		printf("size_b: %d\n", size_b);
+		//printf("size_a: %d\n", size_a);
+		//printf("size_b: %d\n", size_b);
 	}
 	else if (argc > 2)
 	{
@@ -73,6 +73,7 @@ int main(int argc, char **argv)
 	// 0.2 Build an array of ints from the array of string with atoi
 	stack_a = malloc (sizeof(int) * size_a);
 	stack_b = malloc (sizeof(int) * size_b);
+	size_b = 0;
 	i = 0;
 	while (i < size_a)
 	{
@@ -88,13 +89,14 @@ int main(int argc, char **argv)
 		//printf("smallest: %d\n", smallest);
 		// 2. rotate till the stack_a[0] matches the numbers (ra)
 		//printf("size_a main loop: %d\n", size_a);
-		printf("stack_a before ra: ");
-		ft_print_stack(stack_a, size_a);
+		//printf("stack_a before ra: ");
+		//ft_print_stack(stack_a, size_a);
 		while (stack_a[0] != smallest)
 		{
 			//printf("ft_ra - while\n");
 			ft_ra(stack_a, size_a);
 		}
+		/*
 		printf("stack_a after ra: ");
 		ft_print_stack(stack_a, size_a);
 		printf("before pa\n");
@@ -102,13 +104,16 @@ int main(int argc, char **argv)
 		ft_print_stack(stack_a, size_a);
 		printf("stack b: ");
 		ft_print_stack(stack_b, size_b);
+		*/
 		// 3. push the number to the stack_b (pa)
 		ft_pa(stack_b, &size_b, stack_a, &size_a);
+		/*
 		printf("after pa\n");
 		printf("stack a: ");
 		ft_print_stack(stack_a, size_a);
 		printf("stack b: ");
 		ft_print_stack(stack_b, size_b);
+		*/
 		// 4. repeat till there are numbers in stack A;s
 		if (size_a == 0)
 			break ;
@@ -121,6 +126,7 @@ int main(int argc, char **argv)
 	{
 		//printf("ft_pb while\n");
 		ft_pb(stack_a, &size_a, stack_b, &size_b);
+		//printf("size_b: %d\n", size_b);
 	}
   printf("stack_a end: ");
 	ft_print_stack(stack_a, size_a);
@@ -172,8 +178,8 @@ void ft_pa(int *stack_b, int *size_b, int *stack_a, int *size_a)
 		return ;
 	tmp = stack_a[0];
 	ft_memmove(&stack_a[0], &stack_a[1], (*size_a - 1) * sizeof(int));
-	printf("ft_pa: stack_a after memmove: ");
-	ft_print_stack(stack_a, *size_a);
+	//printf("ft_pa: stack_a after memmove: ");
+	//ft_print_stack(stack_a, *size_a);
 	ft_memmove(&stack_b[1], &stack_b[0], (*size_b) * sizeof(int));
 	stack_b[0] = tmp;
 	(*size_a)--;
