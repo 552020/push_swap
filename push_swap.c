@@ -1,13 +1,19 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 void	ft_sa(int *stack_a);
 void	ft_sb(int *stack_b);
 void	ft_ra(int *stack_a, int size);
 int		ft_find_smallest(int *stack_a, int size);
 void	ft_print_stack(int *stack, int size);
+void	ft_pb(int *stack_a, int *size_a, int *stack_b, int *size_b);
+void	ft_pa(int *stack_b, int *size_b, int *stack_a, int *size_a);
 void	*ft_memmove(void *dest, const void *src, size_t n);
-void ft_pb(int *stack_a, int *size_a, int *stack_b, int *size_b);
-void ft_pa(int *stack_b, int *size_b, int *stack_a, int *size_a);
+char	**ft_split(const char *s, char c);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+size_t	ft_strlen(const char *str);
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
+int		ft_atoi(const char *str);
 /*
 typedef struct stack {
     int *data;
@@ -20,27 +26,64 @@ typedef struct stack {
 int main(int argc, char **argv)
 {
 	int smallest;
-	// Take arguments from the command line.
-  int stack_a[] = {5, 1, 3};
-  int stack_b[3];
-	int size_a = 3;
-	int size_b = 0;
+  //int stack_a[] = {5, 1, 3};
+  //int stack_b[3];
+	int *stack_a;
+	int *stack_b;
+	int size_a;
+	int size_b;
 	int i;
+	char **str_arr;
+
 
 	i = 0;
+	size_a = 0;
 	printf("argc: %d\n", argc);
 	while (i < argc)
 	{
 		printf("argv[%d]: %s\n", i, argv[i]);
 		i++;
 	}
+	// 0.1 Build an array out of the arguments passsed in in the command line
+	// - case 1: $ ARG="4 67 86 89"; push_swap $ARG
+	// - case 2; $ push_swap 4 67 86 89
+	// - case 3: # push_swap // no arguments
+	printf("str_arr: \n");
+	if (argc == 2)
+	{
+		str_arr = ft_split(argv[1], ' ');	
+		i = 0;
+		while (str_arr[i])
+		{
+			printf("str_arr[%d]: %s\n", i, str_arr[i]);
+			size_a++;
+			i++;
+		}
+		size_b = size_a;
+		printf("size_a: %d\n", size_a);
+		printf("size_b: %d\n", size_b);
+	}
+	else if (argc > 2)
+	{
+		// case 2: 
+		str_arr = &argv[1];
+	}
+	else
+		return (0) ; 
+	// 0.2 Build an array of ints from the array of string with atoi
+	stack_a = malloc (sizeof(int) * size_a);
+	stack_b = malloc (sizeof(int) * size_b);
+	i = 0;
+	while (i < size_a)
+	{
+		stack_a[i] = ft_atoi(str_arr[i]);
+		i++;
+	}
 	printf("stack_a begin: ");
 	ft_print_stack(stack_a, size_a);
-	// We need now to sort the numbers in the stack A
-	// - We can look for the smallest number, bring it to the top, push it to B
-	// 1. find smallest number in the array
 	while (1)
 	{
+		// 1. find the smallest number in the stack a
 		smallest = ft_find_smallest(stack_a, size_a);
 		//printf("smallest: %d\n", smallest);
 		// 2. rotate till the stack_a[0] matches the numbers (ra)
@@ -81,6 +124,8 @@ int main(int argc, char **argv)
 	}
   printf("stack_a end: ");
 	ft_print_stack(stack_a, size_a);
+	free(stack_a);
+	free(stack_b);
     return (0);
 }
 
@@ -208,4 +253,149 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 		return (dest);
 	}
 	return (dest);
+}
+/* ft_split.c */
+int	ft_free_ret(char **ret, size_t i);
+
+static size_t	ft_count_word(const char *s, char c)
+{
+	size_t	i;
+	size_t	words;
+
+	i = 0;
+	words = 0;
+	if (!s[0])
+		return (0);
+	while (s[i] && s[i] == c)
+		i++;
+	while (s[i] != '\0')
+	{
+		if (s[i] == c)
+		{
+			words++;
+			while (s[i] && s[i] == c)
+				i++;
+		}
+		else
+			i++;
+	}
+	if (s[i - 1] != c)
+		words++;
+	return (words);
+}
+
+char	**ft_split(const char *s, char c)
+{
+	char	**ret;
+	size_t	len;
+	size_t	i;
+
+	i = 0;
+	ret = (malloc(sizeof(char *) * (ft_count_word(s, c) + 1)));
+	if (!ret)
+		return (0);
+	while (*s)
+	{
+		if (*s != c)
+		{
+			len = 0;
+			while (*s && *s != c && ++len)
+				++s;
+			ret[i] = ft_substr(s - len, 0, len);
+			if (!ret[i] && ft_free_ret(ret, i))
+				return (0);
+			i++;
+		}
+		else
+			s++;
+	}
+	ret[i] = 0;
+	return (ret);
+}
+
+int	ft_free_ret(char **ret, size_t i)
+{
+	while (i--)
+		free(ret[i]);
+	free(ret);
+	return (1);
+}
+/* ft_substr is needed for ft_split */
+char	*ft_substr(char const *s, unsigned int start, size_t len)
+{
+	char	*substr;
+	size_t	substr_len;
+	int		s_len;
+
+	s_len = ft_strlen((char *)s);
+	if (start >= ft_strlen((char *)s))
+	{
+		substr = malloc (sizeof(char));
+		if (!substr)
+			return (NULL);
+		*substr = '\0';
+		return (substr);
+	}
+	if (len <= s_len - start)
+		substr_len = len;
+	else
+		substr_len = s_len - start;
+	substr = malloc (sizeof(char) * substr_len + 1);
+	if (substr == NULL)
+		return (0);
+	ft_strlcpy(substr, &s[start], substr_len + 1);
+	return (&substr[0]);
+}
+
+size_t	ft_strlen(const char *str)
+{
+	size_t	s;
+
+	s = 0;
+	while (str[s] != '\0')
+		s++;
+	return (s);
+}
+
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+{
+	size_t	i;
+
+	i = 0;
+	if (dstsize > 0)
+	{
+		while (i < dstsize - 1 && src[i] != '\0')
+		{
+			dst[i] = src[i];
+			i++;
+		}
+		dst[i] = '\0';
+	}
+	return (ft_strlen((char *)src));
+}
+
+int	ft_atoi(const char *str)
+{
+	int	i;
+	int	sign;
+	int	tot;
+
+	i = 0;
+	sign = 1;
+	tot = 0;
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
+		i++;
+	if (str[i] == '-')
+	{
+		sign *= -1;
+		i++;
+	}
+	else if (str[i] == '+')
+		i++;
+	while (str[i] >= '0' && str[i] <= '9' )
+	{
+		tot = tot * 10 + str[i] - '0';
+		i++;
+	}
+	return (tot * sign);
 }
