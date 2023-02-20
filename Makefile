@@ -6,7 +6,7 @@
 #    By: slombard <slombard@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/20 13:37:58 by slombard          #+#    #+#              #
-#    Updated: 2023/02/20 18:40:19 by slombard         ###   ########.fr        #
+#    Updated: 2023/02/20 18:54:30 by slombard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,7 @@ $(NAME): $(OBJECTS) libft/libft.a
 	$(CC) $(CFLAGS) $(OBJECTS) -Llibft -lft -o $@
 
 libft/libft.a:
-	cd libft && make
+	@cd libft && make -s
 
 
 # This is a pattern rule. It is not completely clear to my how this rule is tied to $(OBJECTS). This is based on the so called 'dependencies resolution algorithm'. If the make program sees that a rule is depending from certain files, it will look in Makefile itself, if there are rules to resolve it. 
@@ -46,7 +46,7 @@ libft/libft.a:
 # $@ means the target of the rule in this case the .c file
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean: 
 	rm -f $(OBJECTS)
