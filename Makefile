@@ -6,7 +6,7 @@
 #    By: slombard <slombard@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/20 13:37:58 by slombard          #+#    #+#              #
-#    Updated: 2023/02/20 17:38:32 by slombard         ###   ########.fr        #
+#    Updated: 2023/02/20 18:05:18 by slombard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,10 +33,9 @@ all = $(NAME)
 
 # This is the first target listed in the Makefile. When we call `make` withouth specifying any rule it will run the first rule it finds. If we have just one file let's say push_swap.c in the directory where we call make we could write this rule as `push_swap: push_swap.o`.
 
-$(NAME): $(OBJECTS) libft
+$(NAME): $(OBJECTS) libft/libft.a
 
-
-libft:
+libft/libft.a:
 	cd libft && make
 
 
