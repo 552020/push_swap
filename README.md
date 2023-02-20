@@ -31,8 +31,20 @@ We have at our disposal two "stack" or data collection structures. The first one
 
 ### Makefile
 
-- Your Makefile must at least contain the rules $(NAME), all, clean, fclean and re.:
+- Your Makefile must at least contain the rules $(NAME), all, clean, fclean and re.
 
+- I wrote a lot of commentaries in the Makefile itself. Move the commentaries from the Makefile to her. 
+
+[X] Write a Makefile
+[]	Write a Makefile that import libft.
+
+#### `:=` instead of `=` 
+
+- `:=` the value of the variable is fixed and can't be changed during the executioin of make. Is a good practice to use `:=` instead `=` for variables which values don't change during the execution
+
+#### make -C libft
+
+The make -C command is used to execute make in a subdirectory 
 
 ## Glossary
 
