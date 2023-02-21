@@ -6,13 +6,13 @@
 /*   By: slombard <slombard@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 12:22:35 by slombard          #+#    #+#             */
-/*   Updated: 2023/02/21 12:23:11 by slombard         ###   ########.fr       */
+/*   Updated: 2023/02/21 16:13:29 by slombard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void ft_pa(int *stack_b, int *size_b, int *stack_a, int *size_a)
+void ft_pb(int *stack_b, int *size_b, int *stack_a, int *size_a)
 {
 	int tmp;
 	//printf("ft_pa - size_a before: %d\n", *size_a);
@@ -27,10 +27,10 @@ void ft_pa(int *stack_b, int *size_b, int *stack_a, int *size_a)
 	(*size_a)--;
 	//printf("ft_pa - size_a after: %d\n", *size_a);
 	(*size_b)++;
-	printf("pa\n");
+	printf("pb\n");
 }
 
-void ft_pb(int *stack_a, int *size_a, int *stack_b, int *size_b)
+void ft_pa(int *stack_a, int *size_a, int *stack_b, int *size_b)
 {
 	int tmp;
 	
@@ -42,7 +42,7 @@ void ft_pb(int *stack_a, int *size_a, int *stack_b, int *size_b)
 	stack_a[0] = tmp;
 	(*size_b)--;
 	(*size_a)++;
-	printf("pb\n");
+	printf("pa\n");
 }
 
 

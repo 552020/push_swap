@@ -6,7 +6,7 @@
 /*   By: slombard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 16:00:43 by slombard          #+#    #+#             */
-/*   Updated: 2023/02/21 12:40:47 by slombard         ###   ########.fr       */
+/*   Updated: 2023/02/21 16:12:29 by slombard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,8 @@ int main(int argc, char **argv)
 		ft_print_stack(stack_b, size_b);
 		*/
 		// 3. push the number to the stack_b (pa)
-		ft_pa(stack_b, &size_b, stack_a, &size_a);
+		//ft_pa(stack_b, &size_b, stack_a, &size_a);
+		ft_pb(stack_b, &size_b, stack_a, &size_a);
 		/*
 		printf("after pa\n");
 		printf("stack a: ");
@@ -107,7 +108,8 @@ int main(int argc, char **argv)
 	while (size_b > 0)
 	{
 		//printf("ft_pb while\n");
-		ft_pb(stack_a, &size_a, stack_b, &size_b);
+		//ft_pb(stack_a, &size_a, stack_b, &size_b);
+		ft_pa(stack_a, &size_a, stack_b, &size_b);
 		//printf("size_b: %d\n", size_b);
 	}
   printf("stack_a end: ");
