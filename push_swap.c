@@ -6,7 +6,7 @@
 /*   By: slombard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 16:00:43 by slombard          #+#    #+#             */
-/*   Updated: 2023/02/21 12:26:15 by slombard         ###   ########.fr       */
+/*   Updated: 2023/02/21 12:40:47 by slombard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 int main(int argc, char **argv)
 {
 	int smallest;
-  //int stack_a[] = {5, 1, 3};
-  //int stack_b[3];
 	int *stack_a;
 	int *stack_b;
 	int size_a;
@@ -34,10 +32,6 @@ int main(int argc, char **argv)
 		//printf("argv[%d]: %s\n", i, argv[i]);
 		i++;
 	}
-	// 0.1 Build an array out of the arguments passsed in in the command line
-	// - case 1: $ ARG="4 67 86 89"; push_swap $ARG
-	// - case 2; $ push_swap 4 67 86 89
-	// - case 3: # push_swap // no arguments
 	//printf("str_arr: \n");
 	if (argc == 2)
 	{
@@ -55,12 +49,10 @@ int main(int argc, char **argv)
 	}
 	else if (argc > 2)
 	{
-		// case 2: 
 		str_arr = &argv[1];
 	}
 	else
 		return (0) ; 
-	// 0.2 Build an array of ints from the array of string with atoi
 	stack_a = malloc (sizeof(int) * size_a);
 	stack_b = malloc (sizeof(int) * size_b);
 	size_b = 0;
