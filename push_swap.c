@@ -6,7 +6,7 @@
 /*   By: slombard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 16:00:43 by slombard          #+#    #+#             */
-/*   Updated: 2023/02/20 16:02:10 by slombard         ###   ########.fr       */
+/*   Updated: 2023/02/20 18:22:01 by slombard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int main(int argc, char **argv)
 
 	i = 0;
 	size_a = 0;
+	size_b = 0;
 	//printf("argc: %d\n", argc);
 	while (i < argc)
 	{
