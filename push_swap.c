@@ -6,7 +6,7 @@
 /*   By: slombard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 16:00:43 by slombard          #+#    #+#             */
-/*   Updated: 2023/02/21 12:40:47 by slombard         ###   ########.fr       */
+/*   Updated: 2023/02/21 13:09:22 by slombard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,8 @@ int main(int argc, char **argv)
 		stack_a[i] = ft_atoi(str_arr[i]);
 		i++;
 	}
-	printf("stack_a begin: ");
-	ft_print_stack(stack_a, size_a);
+	//printf("stack_a begin: ");
+	//ft_print_stack(stack_a, size_a);
 	while (1)
 	{
 		// 1. find the smallest number in the stack a
@@ -110,8 +110,8 @@ int main(int argc, char **argv)
 		ft_pb(stack_a, &size_a, stack_b, &size_b);
 		//printf("size_b: %d\n", size_b);
 	}
-  printf("stack_a end: ");
-	ft_print_stack(stack_a, size_a);
+  //printf("stack_a end: ");
+	//ft_print_stack(stack_a, size_a);
 	free(stack_a);
 	free(stack_b);
     return (0);
