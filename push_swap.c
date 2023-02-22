@@ -6,7 +6,7 @@
 /*   By: slombard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 16:00:43 by slombard          #+#    #+#             */
-/*   Updated: 2023/02/22 19:17:09 by slombard         ###   ########.fr       */
+/*   Updated: 2023/02/22 23:12:22 by slombard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ void ft_algorithm(int *stack_a, int *size_a, int *stack_b, int *size_b)
 		smallest = ft_find_smallest(stack_a, *size_a);
 		while (stack_a[0] != smallest)
 			ft_ra(stack_a, *size_a);
-		ft_pa(stack_b, size_b, stack_a, size_a);
+		ft_pb(stack_b, size_b, stack_a, size_a);
 		//printf("%d\n", *size_a);
 		if (*size_a == 0)
 			break ;
@@ -92,7 +92,7 @@ void ft_algorithm(int *stack_a, int *size_a, int *stack_b, int *size_b)
 	while (*size_b > 0)
 	{
 		//printf("%d\n", *size_b);
-		ft_pb(stack_a, size_a, stack_b, size_b);
+		ft_pa(stack_a, size_a, stack_b, size_b);
 	}
 }
 
