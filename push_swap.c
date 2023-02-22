@@ -6,7 +6,7 @@
 /*   By: slombard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 16:00:43 by slombard          #+#    #+#             */
-/*   Updated: 2023/02/22 23:12:22 by slombard         ###   ########.fr       */
+/*   Updated: 2023/02/22 23:20:00 by slombard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,13 @@ void ft_algorithm(int *stack_a, int *size_a, int *stack_b, int *size_b);
 
 int main(int argc, char **argv)
 {
-	//int smallest;
 	int *stack_a;
 	int *stack_b;
 	int size_a;
 	int size_b;
 	int i;
 	char **str_arr;
-
-
+	/* TODO Outsource str_arr build */
 	i = 0;
 	size_a = 0;
 	size_b = 0;
@@ -53,24 +51,8 @@ int main(int argc, char **argv)
 		stack_a[i] = ft_atoi(str_arr[i]);
 	i++;
 	}
-
 	ft_algorithm(stack_a, &size_a, stack_b, &size_b);
-	/* Algorithm Start */
-	/*{
-	while (1)
-	{
-		smallest = ft_find_smallest(stack_a, size_a);
-		while (stack_a[0] != smallest)
-			ft_ra(stack_a, size_a);
-		ft_pa(stack_b, &size_b, stack_a, &size_a);
-		if (size_a == 0)
-			break ;
-	}
-	while (size_b > 0)
-		ft_pb(stack_a, &size_a, stack_b, &size_b);
-	*/
-	/* Algorithm End */
-	free(stack_a);
+		free(stack_a);
 	free(stack_b);
     return (0);
 }
