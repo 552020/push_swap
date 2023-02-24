@@ -6,7 +6,7 @@
 /*   By: slombard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 15:56:08 by slombard          #+#    #+#             */
-/*   Updated: 2023/02/20 16:01:43 by slombard         ###   ########.fr       */
+/*   Updated: 2023/02/24 14:18:47 by slombard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 size_t	ft_strlen(const char *str);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 int		ft_atoi(const char *str);
+void	ft_ss(int *stack_a, int *stack_b);
 
 #endif

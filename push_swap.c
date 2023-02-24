@@ -6,10 +6,15 @@
 /*   By: slombard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 16:00:43 by slombard          #+#    #+#             */
-/*   Updated: 2023/02/22 23:20:00 by slombard         ###   ########.fr       */
+/*   Updated: 2023/02/24 14:06:57 by slombard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
+/*
+TODO 1. Outsource str_art build  
+TODO 2. Optimize algorithm: implement rra
+*/
 #include "push_swap.h"
 void ft_algorithm(int *stack_a, int *size_a, int *stack_b, int *size_b);
 
