@@ -6,7 +6,7 @@
 /*   By: slombard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 15:56:08 by slombard          #+#    #+#             */
-/*   Updated: 2023/02/24 15:10:08 by slombard         ###   ########.fr       */
+/*   Updated: 2023/03/20 21:46:48 by slombard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void	ft_sa(int *stack_a);
 void	ft_sb(int *stack_b);
 void	ft_ra(int *stack_a, int size_a);
 void	ft_rra(int *stack_a, int size_a);
+void	ft_rb(int *stack_b, int size_b);
+void	ft_rrb(int *stack_b, int size_b);
 int		ft_find_smallest(int *stack_a, int size);
 void	ft_print_stack(int *stack, int size);
 void	ft_pb(int *stack_a, int *size_a, int *stack_b, int *size_b);
