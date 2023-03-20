@@ -49,6 +49,7 @@ The make -C command is used to execute make in a subdirectory
 ## Glossary
 
 ### Is the data structure we are given a stack? 
+
 Actually not, cause a stack is an abstract data type, which is well exemplfied by a pile of plates. You can add a plate to the pile adding it to the top of the pile and remove it from the top of pile as well. In a normale stack we have only these two kind of operations, push (adding an element) and pop (removing the element). In push_swap the *pa* operation (push a) is at the same time a pop operation on the stack A and a push operation on the stack B. Swap, rotate and reverse rotate are not operation normally allowed in a normal stack.  
 - Stack 
 A stack is an abstract data type, that represents a collection of elements
@@ -57,20 +58,7 @@ A stack is an abstract data type, that represents a collection of elements
 
 ### What is 'Complexity'?
 
-Complexity is mentioned in Chapter III. Discuss which kind of complexity we deal in this algorithm. I think it's not the 'normal' complexity we have to deal with. 
+Complexity is mentioned in Chapter III. Discuss which kind of complexity we deal in this algorithm. I think it's not the 'normal' complexity we have to deal with.
 
-### Journey
+We have two kind of complexity: time complexity and space complexity. Time complexity is measured on the number of operations needed to perform the algorithm and space complexity refers to the memory needed to perform the algorithm. 
 
-#### Day 1 - Thursday
-
-I managed to write a program that sort an array of three numbers. The numbers are hardcoded. They are  not take from the command line. The Algorithm looks for the smallest value in the stack A, it bring it to the top of the stack throug rotation (ra) and then push it to b. The process is repeated till the stack A is empty. I had to make an architectural decition regarding the 'form' of the stack. They could have been a linked list or an array. The disadvantage of an array of ints ist that there is no 'flag' like the null terminator for array of chars telling us when we are at the end of the string, so I had to create a variable 'size' which keep count of the size of the stack A and the stack B. I implemented 5 operations (pa, pb, sw, sb, ra) out of 11, but ended up using only 3: ra, pa, pb. What I understood at the beginning of the day 2, while reordering all the material I read, is that I did a naive implemetation of the Insertion Sort algorithm.
-
-#### Day 2 - Friday
-
-Goal: take arguments from the command line and populate the array with those values. 
-
-#### Day 3 - Monday 20/02/23
-
-Goal: Write a Makefile and 'clean' everything. 
-
-Background: At the moment all functions has been just copied into push_swap.c, also functions from the libft library. Even if there is no file limitaions for push_swap it would be a good practice to be able to compile libft together with push_swap
