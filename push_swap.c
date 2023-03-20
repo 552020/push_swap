@@ -107,12 +107,39 @@ int	ft_find_smallest(int *stack_a, int size)
 	return (ret);
 }
 
+int	ft_find_highest(int *stack, int size)
+{
+	int ret;
+	int i;
+
+	i = 0;	
+	ret = stack[0];
+	while (i < size)
+	{
+		if (stack[i] > ret)
+			ret = stack_a[i];
+		i++;
+	}
+
+	return (ret);
+}
+
 int ft_find_idx_smallest(int *stack, int smallest)
 {
 	int	i;
 
 	i = 0;
 	while (smallest != stack[i])
+		i++;
+	return (i);
+}
+
+int ft_find_idx_highest(int *stack, int highest)
+{
+	int	i;
+
+	i = 0;
+	while (highest != stack[i])
 		i++;
 	return (i);
 }
@@ -140,18 +167,37 @@ void ft_select_insert(int *stack_a, int *size_a, int *stack_b, int *size_b)
 	int smallest;
 	int	n_smallest; 
 	int n; 
+	int actual_size_a; // we need this to the single interations through A
 
 	n =	*size_a / 10; 
-	smallest = ft_find_smallest(stack_a, *size_a);
-	n_smallest = ft_find_n_smallest(stack_a, *size_a, n);
 
-	// 2.TODO Push: We iterate through A and if the number is on the list or in the range, then we push the numbers to B
+	// 2.TODO Push: We iterate through A as many times till A is empty and if the number is on the list or in the range, then we push the numbers to B
+	while (*siza_a > 0)
+	{
+		actual_size_a = *size_a;
+		smallest = ft_find_smallest(stack_a, *size_a);
+		n_smallest = ft_find_n_smallest(stack_a, *size_a, n);
 
-	// 3. (Insertion Sort) We rotate the number B inserting the number in the right place.
+		while (i < actual_size_a)
+		{
+			if (stack_a[i] >= smallest || stack_a[i] <= n_smallest)
+			{
+				// 3. TODO (Insertion Sort) We rotate the number B inserting the number in the right place.
+				ft_insertion(to_insert, stack_b, size_b);
+				ft_pb(stack_b, size_b, stack_a, size_a);
+			}
+		}
+
+
+	}
+
 }
 
 int ft_find_n_smallest(int *stack_a, int size_a, int n)
 {
+	// if size_a < n, then we can just return the biggest
+	// actually we shouldn't care cause all the numbers are then copied to b
+	// we should actually write a guard in the outer function and if size_a < n then we don't call ft_find_n_smallest
 	int n_smallest;
 	int last_n_smallest;
 	int i;
@@ -178,4 +224,41 @@ int ft_find_n_smallest(int *stack_a, int size_a, int n)
 		j++;
 	}
 	return (ret);
+}
+
+void ft_insertion(int to_insert, int *stack_b, int size_b)
+{
+	int smallest;
+	int highest;
+
+	if (size_b == 0)
+		return ;
+	else 
+	{
+		smallest = ft_find_smallest(stack_b, size_b);
+		highest = ft_find_highest(stack_b, size_b);
+		if (to_insert < smallest || to_insert > highest)
+			ft_bring_highest_to_the_top(stack_b, size_b);
+		else
+			while (stack_b[0] > to_insert && stack_b[1] > to_insert)
+				ft_rb(stack_b, size_b);
+			ft_rb(stack_b, size_b);
+	}
+}
+
+void ft_bring_highest_to_the_top(int *stack, int size_stack)
+{
+	int highest;
+	int idx_highest;
+
+	highest = ft_find_highest(stack, size_stack);
+	idx_highest = ft_find_idx_highest(stack, highest);	
+
+	while (stack[0] != highest)
+	{
+		if (idx_highest > size_stack/2)
+			ft_rrb(stack_b, size_b);
+		else
+			ft_rb(stack_b, size_b);
+	}
 }
