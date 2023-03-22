@@ -6,7 +6,7 @@
 #    By: slombard <slombard@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/20 13:37:58 by slombard          #+#    #+#              #
-#    Updated: 2023/02/21 12:23:32 by slombard         ###   ########.fr        #
+#    Updated: 2023/03/22 22:57:22 by slombard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror
 
-SOURCES = push_swap.c ft_swap.c ft_rotate.c ft_push.c
+SOURCES = push_swap.c ft_swap.c ft_rotate.c ft_push.c ft_utils.c
 
 
 # Subsitution reference. The value/s of the SOURCE is 'expanded' with .o instead of .c. If we have just a file push_swap in the directory where we call make than instead of this rule we could just write OBJECTS = push_swap.o

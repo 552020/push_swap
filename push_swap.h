@@ -6,7 +6,7 @@
 /*   By: slombard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 15:56:08 by slombard          #+#    #+#             */
-/*   Updated: 2023/03/20 21:46:48 by slombard         ###   ########.fr       */
+/*   Updated: 2023/03/22 20:12:41 by slombard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,27 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+void	ft_pa(int *stack_b, int *size_b, int *stack_a, int *size_a);
+void	ft_pb(int *stack_a, int *size_a, int *stack_b, int *size_b);
 void	ft_sa(int *stack_a);
 void	ft_sb(int *stack_b);
 void	ft_ra(int *stack_a, int size_a);
 void	ft_rra(int *stack_a, int size_a);
 void	ft_rb(int *stack_b, int size_b);
 void	ft_rrb(int *stack_b, int size_b);
+
 int		ft_find_smallest(int *stack_a, int size);
+int		ft_find_n_smallest(int *stack_a, int size_a, int n);
+int		ft_find_idx_smallest(int *stack, int smallest);
+int		ft_find_highest(int *stack, int size);
+int		ft_find_idx_highest(int *stack, int highest);
+void	ft_bring_highest_to_the_top(int *stack, int size_stack);
 void	ft_print_stack(int *stack, int size);
-void	ft_pb(int *stack_a, int *size_a, int *stack_b, int *size_b);
-void	ft_pa(int *stack_b, int *size_b, int *stack_a, int *size_a);
+
+void	ft_algorithm(int *stack_a, int *size_a, int *stack_b, int *size_b);
+void	ft_select_insert(int **stack_a, int *size_a, int **stack_b, int *size_b);
+void	ft_insertion(int to_insert, int *stack_b, int size_b);
+
 void	*ft_memmove(void *dest, const void *src, size_t n);
 char	**ft_split(const char *s, char c);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
