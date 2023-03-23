@@ -141,7 +141,8 @@ void ft_select_insert(int **stack_a, int *size_a, int **stack_b, int *size_b)
 			if ((*stack_a)[i] >= smallest || (*stack_a)[i] <= n_smallest)
 			{
 				// 3. TODO (Insertion Sort) We rotate the number B inserting the number in the right place.
-				ft_insertion(*stack_a[0], *stack_b, *size_b);
+				printf("to_insert: %d\n", *stack_a[0]);
+				ft_insertion(*stack_a[0], stack_b, *size_b);
 				ft_pb(*stack_b, size_b, *stack_a, size_a);
 				actual_size_a--;
 				i = 0;
@@ -151,10 +152,14 @@ void ft_select_insert(int **stack_a, int *size_a, int **stack_b, int *size_b)
 	}
 }
 
-void ft_insertion(int to_insert, int *stack_b, int size_b)
+void ft_insertion(int to_insert, int **stack_b, int size_b)
 {
 	int smallest;
 	int highest;
+
+	printf("INSERTION START\n");
+	printf("stack_b: ");
+	ft_print_stack(*stack_b, size_b);
 
 	//printf("ft_insertion\n");
 
@@ -162,15 +167,28 @@ void ft_insertion(int to_insert, int *stack_b, int size_b)
 		return ;
 	else 
 	{
-		smallest = ft_find_smallest(stack_b, size_b);
-		highest = ft_find_highest(stack_b, size_b);
+		smallest = ft_find_smallest(*stack_b, size_b);
+		printf("smallest: %d\n", smallest);
+		highest = ft_find_highest(*stack_b, size_b);
+		printf("highest: %d\n", smallest);
 		if (to_insert < smallest || to_insert > highest)
 			ft_bring_highest_to_the_top(stack_b, size_b);
 		else
-			while (stack_b[0] > to_insert && stack_b[1] > to_insert)
-				ft_rb(stack_b, size_b);
-			ft_rb(stack_b, size_b);
+			while ((*stack_b)[0] > to_insert)
+			{
+				printf("while loop to_insert not smallest not biggest\n");
+				printf("before_rb stack_b: ");
+				ft_print_stack(*stack_b, size_b);
+				ft_rb(*stack_b, size_b);
+				printf("after_rb stack_b: ");
+				ft_print_stack(*stack_b, size_b);
+			}
 	}
+	printf("INSERTION END\n");
+	printf("stack_b: ");
+	ft_print_stack(*stack_b, size_b);
+
+
 }
 
 int ft_find_n_smallest(int *stack_a, int size_a, int n)
@@ -207,19 +225,19 @@ int ft_find_n_smallest(int *stack_a, int size_a, int n)
 }
 
 
-void ft_bring_highest_to_the_top(int *stack, int size_stack)
+void ft_bring_highest_to_the_top(int **stack, int size_stack)
 {
 	int highest;
 	int idx_highest;
 
-	highest = ft_find_highest(stack, size_stack);
-	idx_highest = ft_find_idx_highest(stack, highest);	
+	highest = ft_find_highest(*stack, size_stack);
+	idx_highest = ft_find_idx_highest(*stack, highest);	
 
-	while (stack[0] != highest)
+	while ((*stack)[0] != highest)
 	{
 		if (idx_highest > size_stack/2)
-			ft_rrb(stack, size_stack);
+			ft_rrb(*stack, size_stack);
 		else
-			ft_rb(stack, size_stack);
+			ft_rb(*stack, size_stack);
 	}
 }

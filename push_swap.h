@@ -6,7 +6,7 @@
 /*   By: slombard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 15:56:08 by slombard          #+#    #+#             */
-/*   Updated: 2023/03/22 20:12:41 by slombard         ###   ########.fr       */
+/*   Updated: 2023/03/24 00:14:55 by slombard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,12 @@ int		ft_find_n_smallest(int *stack_a, int size_a, int n);
 int		ft_find_idx_smallest(int *stack, int smallest);
 int		ft_find_highest(int *stack, int size);
 int		ft_find_idx_highest(int *stack, int highest);
-void	ft_bring_highest_to_the_top(int *stack, int size_stack);
+void	ft_bring_highest_to_the_top(int **stack, int size_stack);
 void	ft_print_stack(int *stack, int size);
 
 void	ft_algorithm(int *stack_a, int *size_a, int *stack_b, int *size_b);
 void	ft_select_insert(int **stack_a, int *size_a, int **stack_b, int *size_b);
-void	ft_insertion(int to_insert, int *stack_b, int size_b);
+void	ft_insertion(int to_insert, int **stack_b, int size_b);
 
 void	*ft_memmove(void *dest, const void *src, size_t n);
 char	**ft_split(const char *s, char c);
