@@ -6,7 +6,7 @@
 /*   By: slombard <slombard@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 22:55:26 by slombard          #+#    #+#             */
-/*   Updated: 2023/03/22 22:58:34 by slombard         ###   ########.fr       */
+/*   Updated: 2023/03/27 01:19:30 by slombard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,34 +34,33 @@ int	ft_find_highest(int *stack, int size)
 	int ret;
 	int i;
 
+	//printf("find_highest\n");
+	//ft_print_stack(stack, size);
+	
+
 	i = 0;	
 	ret = stack[0];
 	while (i < size)
 	{
 		if (stack[i] > ret)
+		{
+			//printf("stack[%d]: %d\n", i, stack[i]); 
 			ret = stack[i];
+		}
+
 		i++;
 	}
+	//printf("ret: %d\n", ret);
 
 	return (ret);
 }
 
-int ft_find_idx_smallest(int *stack, int smallest)
+int ft_find_idx_number(int *stack, int number)
 {
 	int	i;
 
 	i = 0;
-	while (smallest != stack[i])
-		i++;
-	return (i);
-}
-
-int ft_find_idx_highest(int *stack, int highest)
-{
-	int	i;
-
-	i = 0;
-	while (highest != stack[i])
+	while (number != stack[i])
 		i++;
 	return (i);
 }

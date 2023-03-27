@@ -6,7 +6,7 @@
 /*   By: slombard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 15:56:08 by slombard          #+#    #+#             */
-/*   Updated: 2023/03/24 00:14:55 by slombard         ###   ########.fr       */
+/*   Updated: 2023/03/27 01:32:19 by slombard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,15 @@ void	ft_ra(int *stack_a, int size_a);
 void	ft_rra(int *stack_a, int size_a);
 void	ft_rb(int *stack_b, int size_b);
 void	ft_rrb(int *stack_b, int size_b);
+void	ft_ss(int *stack_a, int *stack_b);
 
 int		ft_find_smallest(int *stack_a, int size);
 int		ft_find_n_smallest(int *stack_a, int size_a, int n);
-int		ft_find_idx_smallest(int *stack, int smallest);
+int		ft_find_idx_number(int *stack, int smallest);
 int		ft_find_highest(int *stack, int size);
-int		ft_find_idx_highest(int *stack, int highest);
 void	ft_bring_highest_to_the_top(int **stack, int size_stack);
 void	ft_print_stack(int *stack, int size);
+int		ft_find_next_smallest(int to_insert, int *stack, int size);
 
 void	ft_algorithm(int *stack_a, int *size_a, int *stack_b, int *size_b);
 void	ft_select_insert(int **stack_a, int *size_a, int **stack_b, int *size_b);
@@ -43,6 +44,10 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 size_t	ft_strlen(const char *str);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 int		ft_atoi(const char *str);
-void	ft_ss(int *stack_a, int *stack_b);
+char		*ft_strdup(const char *src);
+void		ft_putchar_fd(char c, int fd);
+void		ft_putstr_fd(char *s, int fd);
+void		ft_putnbr_fd(int n, int fd);
+void		ft_putendl_fd(char *s, int fd);
 
 #endif

@@ -28,8 +28,6 @@ int main(int argc, char **argv)
 	i = 0;
 	size_a = 0;
 	size_b = 0;
-	while (i < argc)
-		i++;
 	if (argc == 2)
 	{
 		str_arr = ft_split(argv[1], ' ');	
@@ -42,7 +40,17 @@ int main(int argc, char **argv)
 		size_b = size_a;
 	}
 	else if (argc > 2)
-		str_arr = &argv[1];
+	{
+		i = 1;
+		str_arr = malloc (sizeof(char *) * argc - 1);
+		while (i < argc)
+		{
+			str_arr[i - 1] = ft_strdup(argv[i]);
+			i++;
+			size_a++;
+		}
+		size_b = size_a;
+	}
 	else
 		return (0) ; 
 	stack_a = malloc (sizeof(int) * size_a);
@@ -52,6 +60,9 @@ int main(int argc, char **argv)
 	while (i < size_a)
 	{
 		stack_a[i] = ft_atoi(str_arr[i]);
+		//printf("stack_a[%d]: %d\n", i, stack_a[i]); 
+		//ft_putnbr_fd(stack_a[i], 1); 
+		//ft_putchar_fd('\n', 1);
 	i++;
 	}
 	
@@ -60,15 +71,18 @@ int main(int argc, char **argv)
 	ft_print_stack(stack_a, size_a);
 	printf("stack_b: ");
 	ft_print_stack(stack_b, size_b);
-
-	//ft_algorithm(stack_a, &size_a, stack_b, &size_b);
-	ft_select_insert(&stack_a, &size_a, &stack_b, &size_b);
+	
+	if (size_a < 20)
+		ft_algorithm(stack_a, &size_a, stack_b, &size_b);
+	else
+		ft_select_insert(&stack_a, &size_a, &stack_b, &size_b);
+		
 	printf("END\n");
 	printf("stack_a: ");
 	ft_print_stack(stack_a, size_a);
 	printf("stack_b: ");
 	ft_print_stack(stack_b, size_b);
-
+	
 		free(stack_a);
 	free(stack_b);
 
@@ -83,7 +97,7 @@ void ft_algorithm(int *stack_a, int *size_a, int *stack_b, int *size_b)
 	while (1)
 	{
 		smallest = ft_find_smallest(stack_a, *size_a);
-		idx_smallest = ft_find_idx_smallest(stack_a, smallest);
+		idx_smallest = ft_find_idx_number(stack_a, smallest);
 		while (stack_a[0] != smallest)
 			if (idx_smallest + 1 > *size_a / 2)
 				ft_rra(stack_a, *size_a);	
@@ -113,7 +127,7 @@ void ft_select_insert(int **stack_a, int *size_a, int **stack_b, int *size_b)
 	int i;
 	int actual_size_a; // we need this to the single interations through A
 
-	n =	*size_a / 10; 
+	n =	*size_a / 9; 
 
 	// 2.TODO Push: We iterate through A as many times till A is empty and if the number is on the list or in the range, then we push the numbers to B
 	while (*size_a > 0)
@@ -126,29 +140,40 @@ void ft_select_insert(int **stack_a, int *size_a, int **stack_b, int *size_b)
 		i = 0;	
 		while (i < actual_size_a)
 		{
-			/*
-			printf("size_a: %d\n", *size_a);
-			printf("size_b: %d\n", *size_b);
-			printf("inner_while\n");
-			printf("stack_a: ");
-			ft_print_stack(*stack_a, *size_a);
-			printf("stack_b: ");
-			ft_print_stack(*stack_b, *size_b);
-			printf("actual_size_a: %d\n", actual_size_a);
-			printf("i: %d\n", i);
-			printf("stack_a[%d]: %d\n", i, (*stack_a)[i]);
-			*/
-			if ((*stack_a)[i] >= smallest || (*stack_a)[i] <= n_smallest)
+			
+			//printf("size_a: %d\n", *size_a);
+			//printf("size_b: %d\n", *size_b);
+			//printf("inner_while\n");
+			//printf("stack_a: ");
+			//ft_print_stack(*stack_a, *size_a);
+			//printf("stack_b: ");
+			//ft_print_stack(*stack_b, *size_b);
+			//printf("actual_size_a: %d\n", actual_size_a);
+			//printf("i: %d\n", i);
+			//printf("stack_a[%d]: %d\n", i, (*stack_a)[i]);
+			
+			if ((*stack_a)[0] >= smallest && (*stack_a)[0] <= n_smallest)
 			{
 				// 3. TODO (Insertion Sort) We rotate the number B inserting the number in the right place.
-				printf("to_insert: %d\n", *stack_a[0]);
-				ft_insertion(*stack_a[0], stack_b, *size_b);
+				//printf("\n\nto_insert: %d\n", *stack_a[0]);
+				ft_insertion((*stack_a)[0], stack_b, *size_b);
 				ft_pb(*stack_b, size_b, *stack_a, size_a);
 				actual_size_a--;
-				i = 0;
+			} 
+			else 
+			{
+				//printf("ELSE\n");		
+				ft_ra(*stack_a, *size_a);
+				actual_size_a--;
 			}
 			i++;
 		}
+	}
+	ft_bring_highest_to_the_top(stack_b, *size_b);
+	while (*size_b > 0)
+	{
+		//printf("%d\n", *size_b);
+		ft_pa(*stack_a, size_a, *stack_b, size_b);
 	}
 }
 
@@ -156,30 +181,55 @@ void ft_insertion(int to_insert, int **stack_b, int size_b)
 {
 	int smallest;
 	int highest;
+	int idx_next_smallest;
+	int next_smallest;
 
+	smallest = ft_find_smallest(*stack_b, size_b);
+	highest = ft_find_highest(*stack_b, size_b);
+	next_smallest = ft_find_next_smallest(to_insert, *stack_b, size_b);
+	idx_next_smallest = ft_find_idx_number(*stack_b, next_smallest);	
+	//printf("---\n");
+	printf("to_insert: %d\n", to_insert);
 	printf("INSERTION START\n");
 	printf("stack_b: ");
 	ft_print_stack(*stack_b, size_b);
 
 	//printf("ft_insertion\n");
-
 	if (size_b == 0)
 		return ;
 	else 
 	{
-		smallest = ft_find_smallest(*stack_b, size_b);
-		printf("smallest: %d\n", smallest);
-		highest = ft_find_highest(*stack_b, size_b);
-		printf("highest: %d\n", smallest);
+		//printf("smallest: %d\n", smallest);
+		//printf("highest: %d\n", highest);
+		//printf("to_insert: %d\n", to_insert);
 		if (to_insert < smallest || to_insert > highest)
+		{
+			//printf("smallest or highest\n");
+			//printf("before: ");
+			//ft_print_stack(*stack_b, size_b);
 			ft_bring_highest_to_the_top(stack_b, size_b);
+			//printf("after: ");
+			//ft_print_stack(*stack_b, size_b);
+		}
 		else
-			while ((*stack_b)[0] > to_insert)
+			while (!(((*stack_b)[0] < to_insert) && ((*stack_b)[size_b - 1] > to_insert)))
+			//while ((*stack_b)[0] != next_smallest)
 			{
+				printf("*stack_b[0]; %d\n", (*stack_b)[0]);
+				printf("*stack_b[size_b - 1]; %d\n", (*stack_b)[size_b - 1]);
+				printf("smallest: %d\n", smallest);
+				printf("highest: %d\n", highest);
+				printf("to_insert: %d\n", to_insert);
 				printf("while loop to_insert not smallest not biggest\n");
 				printf("before_rb stack_b: ");
 				ft_print_stack(*stack_b, size_b);
-				ft_rb(*stack_b, size_b);
+				printf("next_smallest: %d\n", next_smallest);
+				printf("idx_next_smallest: %d\n", idx_next_smallest);
+				printf("size_b: %d\n", size_b);
+				if (idx_next_smallest < size_b - idx_next_smallest)
+					ft_rb(*stack_b, size_b);
+				else
+					ft_rrb(*stack_b, size_b);
 				printf("after_rb stack_b: ");
 				ft_print_stack(*stack_b, size_b);
 			}
@@ -187,15 +237,13 @@ void ft_insertion(int to_insert, int **stack_b, int size_b)
 	printf("INSERTION END\n");
 	printf("stack_b: ");
 	ft_print_stack(*stack_b, size_b);
+	//printf("---\n");
 
 
 }
 
 int ft_find_n_smallest(int *stack_a, int size_a, int n)
 {
-	// if size_a < n, then we can just return the biggest
-	// actually we shouldn't care cause all the numbers are then copied to b
-	// we should actually write a guard in the outer function and if size_a < n then we don't call ft_find_n_smallest
 	int n_smallest;
 	int last_n_smallest;
 	int i;
@@ -224,6 +272,29 @@ int ft_find_n_smallest(int *stack_a, int size_a, int n)
 	return (last_n_smallest);
 }
 
+int ft_find_next_smallest(int to_insert, int *stack, int size)
+{
+	int i;
+	int smallest;
+	int next_smallest;
+	int diff;
+
+	i = 0;
+	smallest = ft_find_smallest(stack, size);
+	diff = to_insert - smallest;
+	next_smallest = stack[0];
+	while (i < size - 1)
+	{
+		if (stack[i] < to_insert && (to_insert - stack[i]) <= diff)
+		{
+			diff = to_insert - stack[i];
+			next_smallest = stack[i];
+		}
+		i++;
+	}
+	return (next_smallest);
+}
+
 
 void ft_bring_highest_to_the_top(int **stack, int size_stack)
 {
@@ -231,13 +302,13 @@ void ft_bring_highest_to_the_top(int **stack, int size_stack)
 	int idx_highest;
 
 	highest = ft_find_highest(*stack, size_stack);
-	idx_highest = ft_find_idx_highest(*stack, highest);	
+	idx_highest = ft_find_idx_number(*stack, highest);	
 
 	while ((*stack)[0] != highest)
 	{
-		if (idx_highest > size_stack/2)
-			ft_rrb(*stack, size_stack);
-		else
+		if (idx_highest < size_stack - idx_highest)
 			ft_rb(*stack, size_stack);
+		else
+			ft_rrb(*stack, size_stack);
 	}
 }
