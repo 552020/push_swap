@@ -6,7 +6,7 @@
 /*   By: slombard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 15:56:08 by slombard          #+#    #+#             */
-/*   Updated: 2023/03/27 01:32:19 by slombard         ###   ########.fr       */
+/*   Updated: 2023/03/28 22:01:40 by slombard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <limits.h>
 
 void	ft_pa(int *stack_b, int *size_b, int *stack_a, int *size_a);
 void	ft_pb(int *stack_a, int *size_a, int *stack_b, int *size_b);
@@ -32,7 +33,11 @@ int		ft_find_idx_number(int *stack, int smallest);
 int		ft_find_highest(int *stack, int size);
 void	ft_bring_highest_to_the_top(int **stack, int size_stack);
 void	ft_print_stack(int *stack, int size);
+void	ft_check_stack_is_sorted(int **stack,int size_stack);
 int		ft_find_next_smallest(int to_insert, int *stack, int size);
+int 	ft_find_next_smallest_alt(int to_insert, int *stack, int size);
+int 	ft_find_next_smallest_alt_second(int to_insert, int *stack, int size);
+int ft_find_next_smallest_alt_third(int to_insert, int *stack, int size);
 
 void	ft_algorithm(int *stack_a, int *size_a, int *stack_b, int *size_b);
 void	ft_select_insert(int **stack_a, int *size_a, int **stack_b, int *size_b);
