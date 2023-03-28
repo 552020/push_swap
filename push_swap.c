@@ -66,22 +66,22 @@ int main(int argc, char **argv)
 	i++;
 	}
 	
-	//printf("START\n");
-	//printf("stack_a: ");
-	//ft_print_stack(stack_a, size_a);
-	//printf("stack_b: ");
-	//ft_print_stack(stack_b, size_b);
+	printf("START\n");
+	printf("stack_a: ");
+	ft_print_stack(stack_a, size_a);
+	printf("stack_b: ");
+	ft_print_stack(stack_b, size_b);
 	
 	if (size_a < 20)
 		ft_algorithm(stack_a, &size_a, stack_b, &size_b);
 	else
 		ft_select_insert(&stack_a, &size_a, &stack_b, &size_b);
 		
-	//printf("END\n");
-	//printf("stack_a: ");
-	//ft_print_stack(stack_a, size_a);
-	//printf("stack_b: ");
-	//ft_print_stack(stack_b, size_b);
+	printf("END\n");
+	printf("stack_a: ");
+	ft_print_stack(stack_a, size_a);
+	printf("stack_b: ");
+	ft_print_stack(stack_b, size_b);
 	
 		free(stack_a);
 	free(stack_b);
@@ -184,6 +184,9 @@ void ft_insertion(int to_insert, int **stack_b, int size_b)
 	int idx_next_smallest;
 	int next_smallest;
 
+	int rb_counter;
+	rb_counter = 0;
+
 	smallest = ft_find_smallest(*stack_b, size_b);
 	highest = ft_find_highest(*stack_b, size_b);
 	next_smallest = ft_find_next_smallest(to_insert, *stack_b, size_b);
@@ -212,9 +215,27 @@ void ft_insertion(int to_insert, int **stack_b, int size_b)
 			//ft_print_stack(*stack_b, size_b);
 		}
 		else
+		{
+			rb_counter = 0;
+			printf("*stack_b[0]: %d\n", (*stack_b)[0]);
+			printf("*stack_b[size_b - 1]: %d\n", (*stack_b)[size_b - 1]);
+			printf("smallest: %d\n", smallest);
+			printf("highest: %d\n", highest);
+			printf("to_insert: %d\n", to_insert);
+			printf("while loop to_insert not smallest not biggest\n");
+			printf("before_rb stack_b: ");
+			ft_print_stack(*stack_b, size_b);
+			printf("next_smallest: %d\n", next_smallest);
+			printf("idx_next_smallest: %d\n", idx_next_smallest);
+				//printf("size_b: %d\n", size_b);
+			// This should sovle the bug if the next_smallest is on index 0, cause the next if condition seems not to work propertl
+			if (idx_next_smallest == 0)
+				return ;
+
 			while (!(((*stack_b)[0] < to_insert) && ((*stack_b)[size_b - 1] > to_insert)))
 			//while ((*stack_b)[0] != next_smallest)
 			{
+				
 				//printf("*stack_b[0]; %d\n", (*stack_b)[0]);
 				//printf("*stack_b[size_b - 1]; %d\n", (*stack_b)[size_b - 1]);
 				//printf("smallest: %d\n", smallest);
@@ -230,9 +251,18 @@ void ft_insertion(int to_insert, int **stack_b, int size_b)
 					ft_rb(*stack_b, size_b);
 				else
 					ft_rrb(*stack_b, size_b);
+	
+				rb_counter++;
 				//printf("after_rb stack_b: ");
 				//ft_print_stack(*stack_b, size_b);
+			}			
+			if (rb_counter > size_b/2)
+			{
+				printf("counter: %d\t", rb_counter);
+				printf("size_b: %d\n", size_b);
+				printf("Check Bug!\n");
 			}
+		}
 	}
 	//printf("INSERTION END\n");
 	//printf("stack_b: ");
