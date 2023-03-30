@@ -6,7 +6,7 @@
 /*   By: slombard <slombard@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 01:00:03 by slombard          #+#    #+#             */
-/*   Updated: 2023/03/31 01:29:02 by slombard         ###   ########.fr       */
+/*   Updated: 2023/03/31 01:33:35 by slombard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,13 @@
 
 int main(int argc, char **argv)
 {
-	//int *stack_a;
-	//int *stack_b;
-	//int size_a;
-	//int size_b;
 	int i;
 	char **str_arr;
 	t_stack stack_a;
 	t_stack stack_b;
 
 	i = 0;
-	//size_a = 0;
 	stack_a.size = 0;
-	//size_b = 0;
 	stack_b.size = 0;
 	if (argc == 2)
 	{
@@ -34,11 +28,9 @@ int main(int argc, char **argv)
 		i = 0;
 		while (str_arr[i])
 		{
-			//size_a++;
 			stack_a.size++;
 			i++;
 		}
-		//size_b = size_a;
 		stack_b.size = stack_a.size;
 	}
 	else if (argc > 2)
@@ -49,34 +41,24 @@ int main(int argc, char **argv)
 		{
 			str_arr[i - 1] = ft_strdup(argv[i]);
 			i++;
-			//size_a++;
 			stack_a.size++;
 		}
-		//size_b = size_a;
 		stack_b.size = stack_a.size;
 	}
 	else
 		return (0) ; 
-	//stack_a = malloc (sizeof(int) * size_a);
 	stack_a.stack = malloc (sizeof(int) * stack_a.size);
-	// stack_b = malloc (sizeof(int) * size_b);
 	stack_b.stack = malloc (sizeof(int) * stack_b.size);
-	//size_b = 0;
 	stack_b.size = 0;
 	i = 0;
-	//while (i < size_a)
 	while ( i < stack_a.size)
 	{
-		//stack_a[i] = ft_atoi(str_arr[i]);
 		stack_a.stack[i] = ft_atoi(str_arr[i]);
 		i++;
 	}
-	//if (size_a < 20)
 	if (stack_a.size < 20)
-		//ft_selection(stack_a, &size_a, stack_b, &size_b);
 		ft_selection(stack_a.stack, &stack_a.size, stack_b.stack, &stack_b.size);
 	else
-		//ft_select_insert(&stack_a, &size_a, &stack_b, &size_b);
 		ft_select_insert(stack_a.stack, &stack_a.size, stack_b.stack, &stack_b.size);
 	free(stack_a.stack);
 	free(stack_b.stack);
@@ -104,7 +86,6 @@ void ft_selection(int *stack_a, int *size_a, int *stack_b, int *size_b)
 	while (*size_b > 0)
 		ft_pa(stack_a, size_a, stack_b, size_b);
 }
-//void ft_select_insert(int **stack_a, int *size_a, int **stack_b, int *size_b)
 void ft_select_insert(int *stack_a, int *size_a, int *stack_b, int *size_b)
 {
 	int smallest;
@@ -117,25 +98,19 @@ void ft_select_insert(int *stack_a, int *size_a, int *stack_b, int *size_b)
 	while (*size_a > 0)
 	{
 		actual_size_a = *size_a;
-		//smallest = ft_find_smallest(*stack_a, *size_a);
 		smallest = ft_find_smallest(stack_a, *size_a);
-		//n_smallest = ft_find_n_smallest(*stack_a, *size_a, n);
 		n_smallest = ft_find_n_smallest(stack_a, *size_a, n);
 		i = 0;	
 		while (i < actual_size_a)
 		{
-			//if ((*stack_a)[0] >= smallest && (*stack_a)[0] <= n_smallest)
 			if (stack_a[0] >= smallest && stack_a[0] <= n_smallest)
 			{
-				//ft_insertion((*stack_a)[0], stack_b, *size_b);
 				ft_insertion(stack_a[0], stack_b, size_b);
-				//ft_pb(*stack_b, size_b, *stack_a, size_a);
 				ft_pb(stack_b, size_b, stack_a, size_a);
 				actual_size_a--;
 			} 
 			else 
 			{
-				//ft_ra(*stack_a, *size_a);
 				ft_ra(stack_a, *size_a);
 				actual_size_a--;
 			}
@@ -143,10 +118,8 @@ void ft_select_insert(int *stack_a, int *size_a, int *stack_b, int *size_b)
 		}
 	}
 
-	//ft_bring_highest_to_the_top(stack_b, *size_b);
 	ft_bring_highest_to_the_top(stack_b, *size_b);
 	while (*size_b > 0)
-		//ft_pa(*stack_a, size_a, *stack_b, size_b);
 		ft_pa(stack_a, size_a, stack_b, size_b);
 }
 
@@ -157,9 +130,7 @@ void ft_insertion(int to_insert, int *stack_b, int *size_b)
 	int idx_next_smallest;
 	int next_smallest;
 
-	//smallest = ft_find_smallest(*stack_b, size_b);
 	smallest = ft_find_smallest(stack_b, *size_b);
-	//highest = ft_find_highest(*stack_b, size_b);
 	highest = ft_find_highest(stack_b, *size_b);
 	if (size_b == 0)
 		return ;
@@ -194,7 +165,6 @@ void ft_insertion(int to_insert, int *stack_b, int *size_b)
 			next_smallest = ft_find_next_smallest(to_insert, stack_b, *size_b);
 			idx_next_smallest = ft_find_idx_number(stack_b, next_smallest);
 			//printf("next_smallest_alt: %d\n", next_smallest);
-			//while (!(((*stack_b)[0] < to_insert) && ((*stack_b)[size_b - 1] > to_insert)))
 			while (!((stack_b[0] < to_insert) && (stack_b[*size_b - 1] > to_insert)))
 			{
 				if (idx_next_smallest == 0)
