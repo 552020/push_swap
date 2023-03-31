@@ -6,7 +6,7 @@
 /*   By: slombard <slombard@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 22:55:26 by slombard          #+#    #+#             */
-/*   Updated: 2023/03/31 22:53:16 by slombard         ###   ########.fr       */
+/*   Updated: 2023/03/31 22:57:17 by slombard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,7 @@ char **ft_build_str_arr(int argc, char **argv, t_stack *stack_a, t_stack *stack_
 	}
 	else
 		exit (0) ;
-	
 	return (ret);
-
 }
 
 int	ft_find_smallest(int *stack_a, int size)

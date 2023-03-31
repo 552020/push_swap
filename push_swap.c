@@ -6,7 +6,7 @@
 /*   By: slombard <slombard@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 01:00:03 by slombard          #+#    #+#             */
-/*   Updated: 2023/03/31 22:51:47 by slombard         ###   ########.fr       */
+/*   Updated: 2023/03/31 23:04:16 by slombard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,36 +22,12 @@ int main(int argc, char **argv)
 	stack_a.size = 0;
 	stack_b.size = 0;
 	str_arr = ft_build_str_arr(argc, argv, &stack_a, &stack_b);
-	/*	
-	if (argc == 2)
-	{
-		str_arr = ft_split(argv[1], ' ');	
-		while (str_arr[stack_a.size])
-			stack_a.size++;
-		stack_b.size = stack_a.size;
-	}
-	else if (argc > 2)
-	{
-		i = 1;
-		str_arr = malloc (sizeof(char *) * argc - 1);
-		while (i < argc)
-		{
-			str_arr[i - 1] = ft_strdup(argv[i]);
-			i++;
-			stack_a.size++;
-		}
-		stack_b.size = stack_a.size;
-	}
-	else
-		return (0) ; 
-	*/
 	stack_a.stack = malloc (sizeof(int) * stack_a.size);
 	if (!stack_a.stack)
 		return (0);
-	stack_b.stack = malloc (sizeof(int) * stack_b.size);
+	stack_b.stack = malloc (sizeof(int) * stack_a.size);
 	if (!stack_b.stack)
 		return(0);
-	stack_b.size = 0;
 	i = 0;
 	while ( i < stack_a.size)
 	{
