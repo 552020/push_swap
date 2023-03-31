@@ -6,7 +6,7 @@
 /*   By: slombard <slombard@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 01:00:03 by slombard          #+#    #+#             */
-/*   Updated: 2023/03/31 01:33:35 by slombard         ###   ########.fr       */
+/*   Updated: 2023/03/31 22:51:47 by slombard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,15 @@ int main(int argc, char **argv)
 	t_stack stack_a;
 	t_stack stack_b;
 
-	i = 0;
 	stack_a.size = 0;
 	stack_b.size = 0;
+	str_arr = ft_build_str_arr(argc, argv, &stack_a, &stack_b);
+	/*	
 	if (argc == 2)
 	{
 		str_arr = ft_split(argv[1], ' ');	
-		i = 0;
-		while (str_arr[i])
-		{
+		while (str_arr[stack_a.size])
 			stack_a.size++;
-			i++;
-		}
 		stack_b.size = stack_a.size;
 	}
 	else if (argc > 2)
@@ -47,8 +44,13 @@ int main(int argc, char **argv)
 	}
 	else
 		return (0) ; 
+	*/
 	stack_a.stack = malloc (sizeof(int) * stack_a.size);
+	if (!stack_a.stack)
+		return (0);
 	stack_b.stack = malloc (sizeof(int) * stack_b.size);
+	if (!stack_b.stack)
+		return(0);
 	stack_b.size = 0;
 	i = 0;
 	while ( i < stack_a.size)

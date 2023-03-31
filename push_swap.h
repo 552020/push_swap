@@ -6,7 +6,7 @@
 /*   By: slombard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 15:56:08 by slombard          #+#    #+#             */
-/*   Updated: 2023/03/31 01:14:53 by slombard         ###   ########.fr       */
+/*   Updated: 2023/03/31 22:50:16 by slombard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ int		ft_find_next_smallest(int to_insert, int *stack, int size);
 void	ft_selection(int *stack_a, int *size_a, int *stack_b, int *size_b);
 void	ft_select_insert(int *stack_a, int *size_a, int *stack_b, int *size_b);
 void	ft_insertion(int to_insert, int *stack_b, int* size_b);
+char **ft_build_str_arr(int argc, char **argv, t_stack *stack_a, t_stack *stack_b);
 
 void	*ft_memmove(void *dest, const void *src, size_t n);
 char	**ft_split(const char *s, char c);
