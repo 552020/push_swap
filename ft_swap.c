@@ -19,7 +19,7 @@ void ft_sa(int *stack_a)
     tmp = stack_a[0];
     stack_a[0] = stack_a[1];
     stack_a[1] = tmp;
-    printf("sa\n");
+    ft_printf("sa\n");
 }
 
 void ft_sb(int *stack_b)
@@ -29,7 +29,7 @@ void ft_sb(int *stack_b)
     tmp = stack_b[0];
     stack_b[0] = stack_b[1];
     stack_b[1] = tmp;
-    printf("sb\n");
+    ft_printf("sb\n");
 }
 
 void ft_ss(int *stack_a, int *stack_b)

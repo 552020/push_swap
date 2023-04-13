@@ -33,11 +33,21 @@ all = $(NAME)
 
 # This is the first target listed in the Makefile. When we call `make` withouth specifying any rule it will run the first rule it finds. If we have just one file let's say push_swap.c in the directory where we call make we could write this rule as `push_swap: push_swap.o`.
 
-$(NAME): $(OBJECTS) libft/libft.a
-	$(CC) $(CFLAGS) $(OBJECTS) -Llibft -lft -o $@
+# WORKING CODE FOR ONLY libft #
+# $(NAME): $(OBJECTS) libft/libft.a 
+#	$(CC) $(CFLAGS) $(OBJECTS) -Llibft -lft -o $@
+
+# libft/libft.a:
+#	cd libft && make
+
+$(NAME): $(OBJECTS) libft/libft.a ft_printf/libftprintf.a 
+	$(CC) $(CFLAGS) $(OBJECTS) -Llibft -lft -Lft_printf -lftprintf -o $@
 
 libft/libft.a:
 	cd libft && make
+
+ft_printf/libftprintf.a:
+	cd ft_printf && make
 
 
 # This is a pattern rule. It is not completely clear to my how this rule is tied to $(OBJECTS). This is based on the so called 'dependencies resolution algorithm'. If the make program sees that a rule is depending from certain files, it will look in Makefile itself, if there are rules to resolve it. 
@@ -51,15 +61,15 @@ libft/libft.a:
 clean: 
 	rm -f $(OBJECTS)
 	rm -f libft/*.o
+	rm -f ft_printf/*.o
 
 fclean: clean 
 	rm -f $(NAME)
 	rm -f libft/libft.a
+	rm -f ft_printf/libftprintf.a
 
 re:
 	fclean all
-
-ARG="45 67 2 4 9 8"
 
 run: $(NAME)
 	 ./$(NAME) $(ARG)

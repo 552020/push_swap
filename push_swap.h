@@ -16,6 +16,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <limits.h>
+#include <stdarg.h>
+#include <stdint.h>
 
 struct	s_stack
 {
@@ -59,5 +61,21 @@ void		ft_putchar_fd(char c, int fd);
 void		ft_putstr_fd(char *s, int fd);
 void		ft_putnbr_fd(int n, int fd);
 void		ft_putendl_fd(char *s, int fd);
+/* ft_printf */
+int					ft_printf(const char *format, ...);
+void				ft_parse_specifier(va_list *args, int *count, char c);
+
+void				ft_parse_char(char c, int *count);
+void				ft_parse_str(char *str, int *count);
+void				ft_parse_int(int nbr, int *count);
+void				ft_parse_uint(unsigned int nbr, int *count);
+void				ft_parse_ptr(void *ptr, int *count);
+void				ft_parse_hex(unsigned int hex, int *count, char c);
+
+void				ft_putchar(char c, int *count);
+void				ft_putstr(char *s, int *count);
+void				ft_putnbr(int n, int *count);
+void				ft_putunbr(unsigned int n, int *count);
+void				ft_puthex(unsigned long n, int *count, char c);
 
 #endif

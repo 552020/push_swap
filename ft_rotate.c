@@ -18,7 +18,7 @@ void	ft_ra(int *stack_a, int size_a)
 	tmp = stack_a[0];
 	ft_memmove(&stack_a[0], &stack_a[1], (size_a -1) * sizeof(int));
 	stack_a[size_a - 1] = tmp;
-	printf("ra\n");
+	ft_printf("ra\n");
 }
 
 void	ft_rra(int *stack_a, int size_a)
@@ -27,7 +27,7 @@ void	ft_rra(int *stack_a, int size_a)
 	tmp = stack_a[size_a - 1 ];
 	ft_memmove(&stack_a[1], &stack_a[0], (size_a - 1) * sizeof(int));
 	stack_a[0] = tmp;
-	printf("rra\n");
+	ft_printf("rra\n");
 }
 
 void	ft_rb(int *stack_b, int size_b)
@@ -36,7 +36,7 @@ void	ft_rb(int *stack_b, int size_b)
 	tmp = stack_b[0];
 	ft_memmove(&stack_b[0], &stack_b[1], (size_b -1) * sizeof(int));
 	stack_b[size_b - 1] = tmp;
-	printf("rb\n");
+	ft_printf("rb\n");
 }
 
 void	ft_rrb(int *stack_b, int size_b)
@@ -45,5 +45,5 @@ void	ft_rrb(int *stack_b, int size_b)
 	tmp = stack_b[size_b - 1 ];
 	ft_memmove(&stack_b[1], &stack_b[0], (size_b - 1) * sizeof(int));
 	stack_b[0] = tmp;
-	printf("rrb\n");
+	ft_printf("rrb\n");
 }
