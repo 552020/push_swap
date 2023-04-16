@@ -6,7 +6,7 @@
 /*   By: slombard <slombard@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 01:00:03 by slombard          #+#    #+#             */
-/*   Updated: 2023/03/31 23:04:16 by slombard         ###   ########.fr       */
+/*   Updated: 2023/04/17 01:06:06 by slombard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,8 @@ int main(int argc, char **argv)
 	if (stack_a.size < 20)
 		ft_selection(stack_a.stack, &stack_a.size, stack_b.stack, &stack_b.size);
 	else
-		ft_select_insert(stack_a.stack, &stack_a.size, stack_b.stack, &stack_b.size);
+		//ft_select_insert(stack_a.stack, &stack_a.size, stack_b.stack, &stack_b.size);
+		ft_count_sort(stack_a, stack_b);
 	free(stack_a.stack);
 	free(stack_b.stack);
     return (0);
