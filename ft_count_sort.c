@@ -6,7 +6,7 @@
 /*   By: slombard <slombard@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 13:12:05 by slombard          #+#    #+#             */
-/*   Updated: 2023/04/17 01:05:00 by slombard         ###   ########.fr       */
+/*   Updated: 2023/04/17 23:46:03 by slombard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,18 @@
 #define RA_RRB 3
 #define RB_RRA 4
 
-void	ft_count_sort(t_stack stack_a, t_stack stack_b)
+void	ft_count_sort(t_stack *stack_a, t_stack *stack_b)
 {
 	t_next next;
 
-	next = ft_find_next(stack_a, stack_b);
-	ft_push_next(stack_a, stack_b, next);
-	while (stack_b.size > 0)
-		ft_pa(stack_a.stack, &stack_a.size, stack_b.stack, &stack_b.size);
+	ft_printf("Hello new Algorithm!\n");
+	while (stack_a->size > 0)
+	{
+		next = ft_find_next(*stack_a, *stack_b);
+		ft_push_next(*stack_a, *stack_b, next);
+	}
+	while (stack_b->size > 0)
+		ft_pa(stack_a->stack, &stack_a->size, stack_b->stack, &stack_b->size);
 }
 
 t_next	ft_find_next(t_stack stack_a, t_stack stack_b)
