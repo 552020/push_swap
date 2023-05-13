@@ -6,7 +6,7 @@
 /*   By: slombard <slombard@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 01:00:03 by slombard          #+#    #+#             */
-/*   Updated: 2023/04/17 23:36:27 by slombard         ###   ########.fr       */
+/*   Updated: 2023/05/09 18:25:34 by slombard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int main(int argc, char **argv)
 
 	stack_a.size = 0;
 	stack_b.size = 0;
-	str_arr = ft_build_str_arr(argc, argv, &stack_a, &stack_b);
+	str_arr = ft_build_str_arr(argc, argv, &stack_a);
 	stack_a.stack = malloc (sizeof(int) * stack_a.size);
 	if (!stack_a.stack)
 		return (0);
@@ -34,11 +34,23 @@ int main(int argc, char **argv)
 		stack_a.stack[i] = ft_atoi(str_arr[i]);
 		i++;
 	}
+	ft_printf("***stack_a***\n");
+	ft_printf("stack_a.size: %d\n", stack_a.size);
+	ft_print_stack(stack_a.stack, stack_a.size);
+	ft_printf("***stack_b***\n");
+	ft_printf("stack_b.size: %d\n", stack_b.size);
+	ft_print_stack(stack_b.stack, stack_b.size);
 	//if (stack_a.size < 20)
 		//ft_selection(stack_a.stack, &stack_a.size, stack_b.stack, &stack_b.size);
 	//else
 		//ft_select_insert(stack_a.stack, &stack_a.size, stack_b.stack, &stack_b.size);
-		ft_count_sort(&stack_a, &stack_b);
+	ft_count_sort(&stack_a, &stack_b);
+	ft_printf("***stack_a***\n");
+	ft_printf("stack_a.size: %d\n", stack_a.size);
+	ft_print_stack(stack_a.stack, stack_a.size);
+	ft_printf("***stack_b***\n");
+	ft_printf("stack_b.size: %d\n", stack_b.size);
+	ft_print_stack(stack_b.stack, stack_b.size);
 	free(stack_a.stack);
 	free(stack_b.stack);
     return (0);
@@ -190,19 +202,30 @@ int ft_find_n_smallest(int *stack_a, int size_a, int n)
 int ft_find_next_smallest(int to_insert, int *stack, int size)
 {
 	int i;
+	int highest_b;
 	int next_smallest;
 
-	next_smallest = stack[0];
+	// ft_printf("ft_find_next_smallest\n");
+	// ft_printf("to_insert: %d\n", to_insert);
+	// ft_printf("size: %d\n", size);
+	highest_b = ft_find_highest(stack, size);
+	next_smallest = highest_b;
+	// ft_printf("next_smallest_start: %d\n", next_smallest);
 
 	i = 0;
 	while (i < size - 1)
 	{
+		// printf("stack[%d]: %d\n", i, stack[i]);
 		if(stack[i] > to_insert && stack[i + 1] < to_insert)
 			next_smallest = stack[i + 1];
 		i++;
+		// ft_printf("next_smallest_loop: %d\n", next_smallest);
 	}
 	if(stack[size - 1] > to_insert && stack[0] < to_insert)
 		next_smallest = stack[0];
+	// ft_printf("next_smallest_final: %d\n", next_smallest);
+	// ft_printf("------REMOVE\n");
+	
 	return (next_smallest);
 }
 

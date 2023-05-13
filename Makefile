@@ -12,7 +12,7 @@
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -g -Wall -Wextra -Werror
 
 SOURCES = push_swap.c ft_swap.c ft_rotate.c ft_push.c ft_utils.c ft_count_sort.c
 
