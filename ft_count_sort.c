@@ -21,20 +21,20 @@ void	ft_count_sort(t_stack *stack_a, t_stack *stack_b)
 {
 	t_next next;
 
-	ft_printf("Hello new Algorithm!\n");
-	ft_print_stacks(stack_a, stack_b);
+	// ft_printf("Hello new Algorithm!\n");
+	// ft_print_stacks(stack_a, stack_b);
 	while (stack_a->size > 0)
 	{
-		ft_printf("\nfirst while ft_count_sort\n\n");
-		ft_print_stacks(stack_a, stack_b);
+		// ft_printf("\nfirst while ft_count_sort\n\n");
+		// ft_print_stacks(stack_a, stack_b);
 		next = ft_find_next(*stack_a, *stack_b);
-		ft_printf("next.value: %d\n", next.value);
+		// ft_printf("next.value: %d\n", next.value);
 		ft_push_next(stack_a, stack_b, next);
 	}
 	/* we need this one to process the last element in A */
 	next = ft_find_next(*stack_a, *stack_b);
 	ft_push_next(stack_a, stack_b, next);
-	ft_print_stacks(stack_a, stack_b);
+	// ft_print_stacks(stack_a, stack_b);
 	while (stack_b->size > 0)
 		ft_pa(stack_a->stack, &stack_a->size, stack_b->stack, &stack_b->size);
 }
@@ -172,19 +172,19 @@ void	ft_push_next(t_stack *stack_a, t_stack *stack_b, t_next next)
 
 void	ft_push_next_rr(t_stack *stack_a, t_stack *stack_b, t_next next, int next_smallest)
 {
-	ft_printf("ft_push_next_rr\n");
-	ft_printf("next.value: %d\n", next.value);
-	ft_printf("next_smallest: %d\n", next_smallest);
+	// ft_printf("ft_push_next_rr\n");
+	// ft_printf("next.value: %d\n", next.value);
+	// ft_printf("next_smallest: %d\n", next_smallest);
 	while (stack_a->stack[0] != next.value || stack_b->stack[0] != next_smallest)
 	{
-		ft_printf("next.value: %d\n", next.value);
-		ft_printf("next_smallest: %d\n", next_smallest);
-		ft_printf("stack_a->stack[0]: %d\n", stack_a->stack[0]);
-		ft_printf("stack_b->stack[0]: %d\n", stack_b->stack[0]);
-		ft_printf("stack_a\n");
-		ft_print_stack(stack_a->stack, stack_a->size);
-		ft_printf("stack_b\n");
-		ft_print_stack(stack_b->stack, stack_b->size);
+		// ft_printf("next.value: %d\n", next.value);
+		// ft_printf("next_smallest: %d\n", next_smallest);
+		// ft_printf("stack_a->stack[0]: %d\n", stack_a->stack[0]);
+		// ft_printf("stack_b->stack[0]: %d\n", stack_b->stack[0]);
+		// ft_printf("stack_a\n");
+		// ft_print_stack(stack_a->stack, stack_a->size);
+		// ft_printf("stack_b\n");
+		// ft_print_stack(stack_b->stack, stack_b->size);
 		if (stack_a->stack[0] != next.value && stack_b->stack[0] != next_smallest)
 			ft_rr(stack_a->stack, stack_a->size, stack_b->stack, stack_b->size);
 		else if (stack_a->stack[0] != next.value)
@@ -198,11 +198,11 @@ void	ft_push_next_rr(t_stack *stack_a, t_stack *stack_b, t_next next, int next_s
 
 void	ft_push_next_rrr(t_stack *stack_a, t_stack *stack_b, t_next next, int next_smallest)
 {
-	ft_printf("push_next_rrr\n");
+	// ft_printf("push_next_rrr\n");
 	while (stack_a->stack[0] != next.value || stack_b->stack[0] != next_smallest)
 	{
-		ft_printf("next.value: %d\n", next.value);
-		ft_printf("next_smallest: %d\n", next_smallest);
+		// ft_printf("next.value: %d\n", next.value);
+		// ft_printf("next_smallest: %d\n", next_smallest);
 		// ft_printf("stack_a->stack[0]: %d\n", stack_a->stack[0]);
 		// ft_printf("stack_b->stack[0]: %d\n", stack_b->stack[0]);
 		// ft_printf("ft_push_next_rrr\n");
@@ -212,28 +212,28 @@ void	ft_push_next_rrr(t_stack *stack_a, t_stack *stack_b, t_next next, int next_
 		// ft_print_stack(stack_b->stack, stack_b->size);
 		if (stack_a->stack[0] != next.value && stack_b->stack[0] != next_smallest)
 		{
-			ft_printf("ft_rrr\n");
+			// ft_printf("ft_rrr\n");
 			ft_rrr(stack_a->stack, stack_a->size, stack_b->stack, stack_b->size);
 		}
 		else if (stack_a->stack[0] != next.value)
 		{
-			ft_printf("ft_rra\n");
+			// ft_printf("ft_rra\n");
 			ft_rra(stack_a->stack,stack_a->size);
 		}
 		else
 		{
-			ft_printf("ft_rrb\n");
+			// ft_printf("ft_rrb\n");
 			ft_rrb(stack_b->stack, stack_b->size);
 
 		}
 	}
-	ft_printf("before ft_pb: stack_a->size: %d\n", *(&stack_a->size)); 
+	// ft_printf("before ft_pb: stack_a->size: %d\n", *(&stack_a->size)); 
 	ft_pb(stack_b->stack, &stack_b->size, stack_a->stack, &stack_a->size);
 }
 
 void	ft_push_next_ra_rrb(t_stack *stack_a, t_stack *stack_b, t_next next, int next_smallest)
 {
-	ft_printf("ft_push_next_ra_rrb\n");
+	// ft_printf("ft_push_next_ra_rrb\n");
 	while (stack_a->stack[0] != next.value)
 			ft_ra(stack_a->stack, stack_a->size);
 	while (stack_b->stack[0] != next_smallest)
@@ -244,7 +244,7 @@ void	ft_push_next_ra_rrb(t_stack *stack_a, t_stack *stack_b, t_next next, int ne
 
 void ft_push_next_rb_rra(t_stack *stack_a, t_stack *stack_b, t_next next, int next_smallest)
 {
-	ft_printf("ft_push_next_rb_rra\n");
+	// ft_printf("ft_push_next_rb_rra\n");
 	while (stack_a->stack[0] != next.value)
 			ft_rra(stack_a->stack, stack_a->size);
 	while (stack_b->stack[0] != next_smallest)

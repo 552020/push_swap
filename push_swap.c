@@ -34,23 +34,23 @@ int main(int argc, char **argv)
 		stack_a.stack[i] = ft_atoi(str_arr[i]);
 		i++;
 	}
-	ft_printf("***stack_a***\n");
-	ft_printf("stack_a.size: %d\n", stack_a.size);
-	ft_print_stack(stack_a.stack, stack_a.size);
-	ft_printf("***stack_b***\n");
-	ft_printf("stack_b.size: %d\n", stack_b.size);
-	ft_print_stack(stack_b.stack, stack_b.size);
+	// ft_printf("***stack_a***\n");
+	// ft_printf("stack_a.size: %d\n", stack_a.size);
+	// ft_print_stack(stack_a.stack, stack_a.size);
+	// ft_printf("***stack_b***\n");
+	// ft_printf("stack_b.size: %d\n", stack_b.size);
+	// ft_print_stack(stack_b.stack, stack_b.size);
 	//if (stack_a.size < 20)
 		//ft_selection(stack_a.stack, &stack_a.size, stack_b.stack, &stack_b.size);
 	//else
 		//ft_select_insert(stack_a.stack, &stack_a.size, stack_b.stack, &stack_b.size);
 	ft_count_sort(&stack_a, &stack_b);
-	ft_printf("***stack_a***\n");
-	ft_printf("stack_a.size: %d\n", stack_a.size);
-	ft_print_stack(stack_a.stack, stack_a.size);
-	ft_printf("***stack_b***\n");
-	ft_printf("stack_b.size: %d\n", stack_b.size);
-	ft_print_stack(stack_b.stack, stack_b.size);
+	// ft_printf("***stack_a***\n");
+	// ft_printf("stack_a.size: %d\n", stack_a.size);
+	// ft_print_stack(stack_a.stack, stack_a.size);
+	// ft_printf("***stack_b***\n");
+	// ft_printf("stack_b.size: %d\n", stack_b.size);
+	// ft_print_stack(stack_b.stack, stack_b.size);
 	free(stack_a.stack);
 	free(stack_b.stack);
     return (0);
