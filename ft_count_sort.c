@@ -21,7 +21,9 @@ void	ft_count_sort(t_stack *stack_a, t_stack *stack_b)
 {
 	t_next next;
 
-	// ft_printf("Hello new Algorithm!\n");
+	ft_printf("ft_count_sort!\n");
+
+	// int i = 0; // REMOVE ME 
 	// ft_print_stacks(stack_a, stack_b);
 	while (stack_a->size > 0)
 	{
@@ -29,10 +31,22 @@ void	ft_count_sort(t_stack *stack_a, t_stack *stack_b)
 		// ft_print_stacks(stack_a, stack_b);
 		next = ft_find_next(*stack_a, *stack_b);
 		// ft_printf("next.value: %d\n", next.value);
+		// ft_printf("ft_count_sort again\n");
+		// ft_printf("stacks before ft_push_next\n");
+		// ft_print_stacks(stack_a, stack_b);
+		// ft_printf("next.value: %d\n", next.value);
+		// ft_printf("next.rotation: %d\n", next.rotation);
 		ft_push_next(stack_a, stack_b, next);
+		// ft_printf("stacks after ft_push_next\n");
+		// ft_print_stacks(stack_a, stack_b);
+		// i++;
+		// if (i == 10)
+		// 	exit(0);
 	}
 	/* we need this one to process the last element in A */
 	next = ft_find_next(*stack_a, *stack_b);
+
+
 	ft_push_next(stack_a, stack_b, next);
 	// ft_print_stacks(stack_a, stack_b);
 	while (stack_b->size > 0)
@@ -46,8 +60,12 @@ t_next	ft_find_next(t_stack stack_a, t_stack stack_b)
 	t_next_score best;
 	t_next_score tmp;
 
+	// ft_printf("\n\nft_find_next\n");
 	best = ft_find_score(stack_a, stack_b, stack_a.stack[0]);
+	// ft_printf("best.value: %d\n", best.value);
+	// ft_printf("best.rotation: %d\n", best.rotation);
 	i = 0;
+	// ft_printf("before the while loop\n");
 	while (i < stack_a.size)
 	{
 		tmp = ft_find_score(stack_a, stack_b, stack_a.stack[i]);
@@ -55,8 +73,11 @@ t_next	ft_find_next(t_stack stack_a, t_stack stack_b)
 			best = tmp;
 		i++;
 	}
+	// ft_printf("###\nafter the while loop\n");
 	ret.value = best.value;
 	ret.rotation = best.rotation;
+	// ft_printf("ret.value: %d\n", ret.value);
+	// ft_printf("ret.rotation: %d\n", ret.rotation);
 	return ret;
 }
 
@@ -65,10 +86,13 @@ t_next_score	ft_find_score(t_stack stack_a, t_stack stack_b, int to_be_scored)
 	t_scores_simple tss;
 	t_scores_combined tsc;
 	t_next_score ret;
+
+	// ft_printf("\n\nft_find_score\n");
 	
 	tss = ft_find_scores_simple(stack_a, stack_b, to_be_scored);
 	tsc = ft_find_scores_combined(tss);
 	ret = ft_build_ret(tsc, to_be_scored);
+	
 	return ret;
 }
 
@@ -77,6 +101,8 @@ t_scores_simple	ft_find_scores_simple(t_stack stack_a, t_stack stack_b, int to_b
 	int to_be_scored_idx;
 	t_scores_simple tss;
 
+	// ft_printf("find_scores_simple\n");
+	// ft_printf("to_be_scored: %d\n", to_be_scored);
 	to_be_scored_idx = ft_find_idx_number(stack_a.stack, to_be_scored);
 	tss.ra = to_be_scored_idx; 
 	if (to_be_scored_idx == 0)
@@ -87,7 +113,11 @@ t_scores_simple	ft_find_scores_simple(t_stack stack_a, t_stack stack_b, int to_b
 	if (tss.rb == 0)
 		tss.rrb = 0;
 	else
-		tss.rrb = stack_b.size - tss.rb; 
+		tss.rrb = stack_b.size - tss.rb;
+	// ft_printf("tss.ra: %d\n", tss.ra);
+	// ft_printf("tss.rra: %d\n", tss.rra);
+	// ft_printf("tss.rb: %d\n", tss.rb);
+	// ft_printf("tss.rrb: %d\n", tss.rrb);
 	return tss;
 }
 
@@ -104,42 +134,59 @@ int	ft_find_score_rb(t_stack stack_b, int to_be_scored)
 t_scores_combined	ft_find_scores_combined(t_scores_simple tss)
 {
 	t_scores_combined tsc;
+	// printf("find_scores_combined\n");
 	
 	if (tss.ra > tss.rb)
 		tsc.rr = tss.ra;
 	else 
 		tsc.rr = tss.rb;
 	if (tss.rra > tss.rrb)
-		tsc.rrr = tss.rrb;
-	else 
 		tsc.rrr = tss.rra;
+	else 
+		tsc.rrr = tss.rrb;
 	tsc.ra_rrb = tss.ra + tss.rrb;
 	tsc.rb_rra = tss.rb + tss.rra;
+	// ft_printf("tsc.rr: %d\n", tsc.rr);
+	// ft_printf("tsc.rrr: %d\n", tsc.rrr);
+	// ft_printf("tsc.ra_rrb: %d\n", tsc.ra_rrb);
+	// ft_printf("tsc.rb_rra: %d\n", tsc.rb_rra);
 	return tsc;
 }
 
 t_next_score	ft_build_ret(t_scores_combined tsc, int to_be_scored)
 {
 	t_next_score min;
-
+	
+	// ft_printf("build_ret\n");
+	// ft_printf("ts.rr: %d\n", tsc.rr);
+	// ft_printf("ts.rrr: %d\n", tsc.rrr);
+	// ft_printf("ts.ra_rrb: %d\n", tsc.ra_rrb);
+	// ft_printf("ts.rb_rra: %d\n", tsc.rb_rra);
 	min.value = to_be_scored;
 	min.rotation = RR;
 	min.score = tsc.rr;
+	// ft_printf("min.value: %d\n", min.value);
+	// ft_printf("min.rotation: %d\n", min.rotation);
+	// ft_printf("min.score: %d\n", min.score);
 	if (tsc.rrr < min.score)
 	{
+		// ft_printf("tsc.rrr < min.score\n");
 		min.rotation = RRR;
 		min.score = tsc.rrr;
 	}
 	if (tsc.ra_rrb < min.score)
 	{
+		// ft_printf("tsc.ra_rrb < min.score\n");
 		min.rotation = RA_RRB;
 		min.score = tsc.ra_rrb;
 	}
 	if (tsc.rb_rra < min.score)
 	{
+		// ft_printf("tsc.rb_rra < min.score\n");
 		min.rotation = RB_RRA;
 		min.score = tsc.rb_rra;
 	}
+	// printf("min.rotation: %d\n", min.rotation);
 	return min;
 }
 
