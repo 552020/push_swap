@@ -44,7 +44,12 @@ int main(int argc, char **argv)
 		//ft_selection(stack_a.stack, &stack_a.size, stack_b.stack, &stack_b.size);
 	//else
 		//ft_select_insert(stack_a.stack, &stack_a.size, stack_b.stack, &stack_b.size);
-	ft_count_sort(&stack_a, &stack_b);
+	if (stack_a.size > 3 && stack_a.size < 6)
+		ft_medium_sort(&stack_a, &stack_b);
+	else if (stack_a.size > 3)
+		ft_count_sort(&stack_a, &stack_b);
+	else 
+		ft_small_sort(&stack_a);
 	// ft_printf("***stack_a***\n");
 	// ft_printf("stack_a.size: %d\n", stack_a.size);
 	// ft_print_stack(stack_a.stack, stack_a.size);

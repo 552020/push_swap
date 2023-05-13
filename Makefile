@@ -14,7 +14,7 @@ CC = gcc
 
 CFLAGS = -g -Wall -Wextra -Werror
 
-SOURCES = push_swap.c ft_swap.c ft_rotate.c ft_push.c ft_utils.c ft_count_sort.c
+SOURCES = push_swap.c ft_swap.c ft_rotate.c ft_push.c ft_utils.c ft_count_sort.c ft_small_sort.c
 
 # Subsitution reference. The value/s of the SOURCE is 'expanded' with .o instead of .c. If we have just a file push_swap in the directory where we call make than instead of this rule we could just write OBJECTS = push_swap.o
 

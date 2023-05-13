@@ -76,8 +76,12 @@ void	ft_print_stacks(t_stack *stack_a, t_stack *stack_b);
 void	ft_selection(int *stack_a, int *size_a, int *stack_b, int *size_b);
 void	ft_select_insert(int *stack_a, int *size_a, int *stack_b, int *size_b);
 void	ft_insertion(int to_insert, int *stack_b, int* size_b);
+
 char **ft_build_str_arr(int argc, char **argv, t_stack *stack_a);
 void	ft_count_sort(t_stack *stack_a, t_stack *stack_b);
+void	ft_small_sort(t_stack *stack_a);
+void	ft_medium_sort(t_stack *stack_a, t_stack *stack_b);
+
 t_next	ft_find_next(t_stack stack_a, t_stack stack_b);
 t_next_score ft_find_score(t_stack stack_a, t_stack stack_b, int to_be_scored);
 t_scores_simple	ft_find_scores_simple(t_stack stack_a, t_stack stack_b, int to_be_scored);
