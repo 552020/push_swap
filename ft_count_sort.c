@@ -21,7 +21,7 @@ void	ft_count_sort(t_stack *stack_a, t_stack *stack_b)
 {
 	t_next next;
 
-	ft_printf("ft_count_sort!\n");
+	// ft_printf("ft_count_sort!\n");
 
 	// int i = 0; // REMOVE ME 
 	// ft_print_stacks(stack_a, stack_b);

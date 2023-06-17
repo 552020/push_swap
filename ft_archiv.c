@@ -80,3 +80,25 @@ int ft_find_next_smallest_alt_third(int to_insert, int *stack, int size)
     // we have found the index of the smallest element greater than to_insert
     return stack[left];
 }
+
+void	ft_selection(int *stack_a, int *size_a, int *stack_b, int *size_b)
+{
+	int	smallest;
+	int	idx_smallest;
+
+	while (1)
+	{
+		smallest = ft_find_smallest(stack_a, *size_a);
+		idx_smallest = ft_find_idx_number(stack_a, smallest);
+		while (stack_a[0] != smallest)
+			if (idx_smallest + 1 > *size_a / 2)
+				ft_rra(stack_a, *size_a);
+			else 
+				ft_ra(stack_a, *size_a);
+				ft_pb(stack_b, size_b, stack_a, size_a);
+		if (*size_a == 0)
+			break ;
+	}
+	while (*size_b > 0)
+		ft_pa(stack_a, size_a, stack_b, size_b);
+}
