@@ -81,6 +81,36 @@ int ft_find_next_smallest_alt_third(int to_insert, int *stack, int size)
     return stack[left];
 }
 
+int	ft_find_n_smallest(int *stack_a, int size_a, int n)
+{
+	int	n_smallest;
+	int	last_n_smallest;
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	while (j < n && j < size_a)
+	{
+		n_smallest = stack_a[0];
+		if (j == 0)
+			n_smallest = ft_find_smallest(stack_a, size_a);
+		else
+		{
+			while (i < size_a)
+			{
+				if (stack_a[i] < n_smallest && stack_a[i] > last_n_smallest)
+					n_smallest = stack_a[i];
+				i++;
+			}
+		}
+		last_n_smallest = n_smallest;
+		i = 0;
+		j++;
+	}
+	return (last_n_smallest);
+}
+
 void	ft_selection(int *stack_a, int *size_a, int *stack_b, int *size_b)
 {
 	int	smallest;

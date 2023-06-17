@@ -6,7 +6,7 @@
 /*   By: slombard <slombard@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 01:00:03 by slombard          #+#    #+#             */
-/*   Updated: 2023/06/17 20:12:49 by slombard         ###   ########.fr       */
+/*   Updated: 2023/06/17 20:28:11 by slombard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,37 +51,6 @@ int	ft_build_stacks(t_stack *stack_a, t_stack *stack_b, char **str_arr)
 		i++;
 	}
 	return (1);
-}
-
-
-int	ft_find_n_smallest(int *stack_a, int size_a, int n)
-{
-	int	n_smallest;
-	int	last_n_smallest;
-	int	i;
-	int	j;
-
-	i = 0;
-	j = 0;
-	while (j < n && j < size_a)
-	{
-		n_smallest = stack_a[0];
-		if (j == 0)
-			n_smallest = ft_find_smallest(stack_a, size_a);
-		else
-		{
-			while (i < size_a)
-			{
-				if (stack_a[i] < n_smallest && stack_a[i] > last_n_smallest)
-					n_smallest = stack_a[i];
-				i++;
-			}
-		}
-		last_n_smallest = n_smallest;
-		i = 0;
-		j++;
-	}
-	return (last_n_smallest);
 }
 
 int	ft_find_next_smallest(int to_insert, int *stack, int size)
