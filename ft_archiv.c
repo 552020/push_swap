@@ -103,6 +103,40 @@ void	ft_selection(int *stack_a, int *size_a, int *stack_b, int *size_b)
 		ft_pa(stack_a, size_a, stack_b, size_b);
 }
 
+void	ft_insertion(int to_insert, int *stack_b, int *size_b)
+{
+	int	smallest;
+	int	highest;
+	int	idx_next_smallest;
+	int	next_smallest;
+
+	smallest = ft_find_smallest(stack_b, *size_b);
+	highest = ft_find_highest(stack_b, *size_b);
+	if (size_b == 0)
+		return ;
+	else
+	{
+		if (to_insert < smallest || to_insert > highest)
+			ft_bring_highest_to_the_top(stack_b, *size_b);
+		else
+		{
+			next_smallest = ft_find_next_smallest(to_insert, stack_b, *size_b);
+			idx_next_smallest = ft_find_idx_number(stack_b, next_smallest);
+			while (!((stack_b[0] < to_insert)
+					&& (stack_b[*size_b - 1] > to_insert)))
+			{
+				if (idx_next_smallest == 0)
+					break ;
+				if (idx_next_smallest < *size_b / 2)
+					ft_rb(stack_b, *size_b);
+				else
+					ft_rrb(stack_b, *size_b);
+			}			
+		}
+	}
+}
+
+
 void	ft_select_insert(int *stack_a, int *size_a, int *stack_b, int *size_b)
 {
 	int	smallest;

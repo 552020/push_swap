@@ -6,7 +6,7 @@
 /*   By: slombard <slombard@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 01:00:03 by slombard          #+#    #+#             */
-/*   Updated: 2023/06/17 18:52:24 by slombard         ###   ########.fr       */
+/*   Updated: 2023/06/17 20:12:49 by slombard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ int	main(int argc, char **argv)
 	str_arr = ft_build_str_arr(argc, argv, &stack_a);
 	if (!ft_build_stacks(&stack_a, &stack_b, str_arr))
 		return (0);
-
 	if (stack_a.size > 3 && stack_a.size < 6)
 		ft_medium_sort(&stack_a, &stack_b);
 	else if (stack_a.size > 3)
@@ -37,7 +36,7 @@ int	main(int argc, char **argv)
 
 int	ft_build_stacks(t_stack *stack_a, t_stack *stack_b, char **str_arr)
 {
-	int i;
+	int	i;
 
 	stack_a->stack = malloc(sizeof(int) * stack_a->size);
 	if (!stack_a->stack)
@@ -55,39 +54,7 @@ int	ft_build_stacks(t_stack *stack_a, t_stack *stack_b, char **str_arr)
 }
 
 
-void ft_insertion(int to_insert, int *stack_b, int *size_b)
-{
-	int	smallest;
-	int	highest;
-	int	idx_next_smallest;
-	int	next_smallest;
-
-	smallest = ft_find_smallest(stack_b, *size_b);
-	highest = ft_find_highest(stack_b, *size_b);
-	if (size_b == 0)
-		return ;
-	else
-	{
-		if (to_insert < smallest || to_insert > highest)
-			ft_bring_highest_to_the_top(stack_b, *size_b);
-		else
-		{
-			next_smallest = ft_find_next_smallest(to_insert, stack_b, *size_b);
-			idx_next_smallest = ft_find_idx_number(stack_b, next_smallest);
-			while (!((stack_b[0] < to_insert) && (stack_b[*size_b - 1] > to_insert)))
-			{
-				if (idx_next_smallest == 0)
-					break ;
-				if (idx_next_smallest < *size_b / 2)
-					ft_rb(stack_b, *size_b);
-				else
-					ft_rrb(stack_b, *size_b);
-			}			
-		}
-	}
-}
-
-int ft_find_n_smallest(int *stack_a, int size_a, int n)
+int	ft_find_n_smallest(int *stack_a, int size_a, int n)
 {
 	int	n_smallest;
 	int	last_n_smallest;
@@ -99,7 +66,7 @@ int ft_find_n_smallest(int *stack_a, int size_a, int n)
 	while (j < n && j < size_a)
 	{
 		n_smallest = stack_a[0];
-		if (j == 0) 
+		if (j == 0)
 			n_smallest = ft_find_smallest(stack_a, size_a);
 		else
 		{
@@ -117,7 +84,7 @@ int ft_find_n_smallest(int *stack_a, int size_a, int n)
 	return (last_n_smallest);
 }
 
-int ft_find_next_smallest(int to_insert, int *stack, int size)
+int	ft_find_next_smallest(int to_insert, int *stack, int size)
 {
 	int	i;
 	int	highest_b;
@@ -125,7 +92,6 @@ int ft_find_next_smallest(int to_insert, int *stack, int size)
 
 	highest_b = ft_find_highest(stack, size);
 	next_smallest = highest_b;
-
 	i = 0;
 	while (i < size - 1)
 	{
@@ -133,19 +99,18 @@ int ft_find_next_smallest(int to_insert, int *stack, int size)
 			next_smallest = stack[i + 1];
 		i++;
 	}
-	if(stack[size - 1] > to_insert && stack[0] < to_insert)
+	if (stack[size - 1] > to_insert && stack[0] < to_insert)
 		next_smallest = stack[0];
 	return (next_smallest);
 }
 
-void ft_bring_highest_to_the_top(int *stack, int size_stack)
+void	ft_bring_highest_to_the_top(int *stack, int size_stack)
 {
 	int	highest;
 	int	idx_highest;
 
 	highest = ft_find_highest(stack, size_stack);
-	idx_highest = ft_find_idx_number(stack, highest);	
-
+	idx_highest = ft_find_idx_number(stack, highest);
 	while (stack[0] != highest)
 	{
 		if (idx_highest < size_stack - idx_highest)
