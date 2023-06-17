@@ -20,6 +20,8 @@ int	main(int argc, char **argv)
 
 	stack_a.size = 0;
 	stack_b.size = 0;
+	if (!ft_check_input(argv)) 
+		ft_write_error(); 
 	str_arr = ft_build_str_arr(argc, argv, &stack_a);
 	if (!ft_build_stacks(&stack_a, &stack_b, str_arr))
 		return (0);
@@ -47,7 +49,7 @@ int	ft_build_stacks(t_stack *stack_a, t_stack *stack_b, char **str_arr)
 	i = 0;
 	while (i < stack_a->size)
 	{
-		stack_a->stack[i] = ft_atoi(str_arr[i]);
+		stack_a->stack[i] = ft_atol(str_arr[i]);
 		i++;
 	}
 	return (1);

@@ -15,6 +15,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 #include <limits.h>
 #include <stdarg.h>
 #include <stdint.h>
@@ -72,6 +73,15 @@ void	ft_bring_highest_to_the_top(int *stack, int size_stack);
 int		ft_find_next_smallest(int to_insert, int *stack, int size);
 void	ft_print_stack(int *stack, int size);
 void	ft_print_stacks(t_stack *stack_a, t_stack *stack_b);
+int		ft_check_input(char **argv);
+int		ft_num_check(char *argv);
+int		ft_issign(int c);
+int		ft_isdigit(int c);
+int		ft_check_zero(char *argv);
+int		ft_sneak_duplicate(char **argv);
+void	ft_write_error(void);
+int		ft_num_str_cmp(const char *s1, const char *s2);
+long int	ft_atol(const char *str);
 
 void	ft_selection(int *stack_a, int *size_a, int *stack_b, int *size_b);
 void	ft_select_insert(int *stack_a, int *size_a, int *stack_b, int *size_b);
