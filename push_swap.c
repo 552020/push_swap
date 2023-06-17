@@ -6,7 +6,7 @@
 /*   By: slombard <slombard@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 01:00:03 by slombard          #+#    #+#             */
-/*   Updated: 2023/06/17 20:28:11 by slombard         ###   ########.fr       */
+/*   Updated: 2023/06/17 23:18:41 by slombard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ int	main(int argc, char **argv)
 
 	stack_a.size = 0;
 	stack_b.size = 0;
-	if (!ft_check_input(argv)) 
-		ft_write_error(); 
+	if (!ft_check_input(argv))
+		ft_write_error();
 	str_arr = ft_build_str_arr(argc, argv, &stack_a);
 	if (!ft_build_stacks(&stack_a, &stack_b, str_arr))
 		return (0);
