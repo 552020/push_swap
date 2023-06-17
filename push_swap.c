@@ -13,8 +13,7 @@
 #include "push_swap.h"
 
 int	main(int argc, char **argv)
-{
-	int		i;
+{	
 	char	**str_arr;
 	t_stack	stack_a;
 	t_stack	stack_b;
@@ -22,18 +21,9 @@ int	main(int argc, char **argv)
 	stack_a.size = 0;
 	stack_b.size = 0;
 	str_arr = ft_build_str_arr(argc, argv, &stack_a);
-	stack_a.stack = malloc (sizeof(int) * stack_a.size);
-	if (!stack_a.stack)
+	if (!ft_build_stacks(&stack_a, &stack_b, str_arr))
 		return (0);
-	stack_b.stack = malloc (sizeof(int) * stack_a.size);
-	if (!stack_b.stack)
-		return (0);
-	i = 0;
-	while (i < stack_a.size)
-	{
-		stack_a.stack[i] = ft_atoi(str_arr[i]);
-		i++;
-	}
+
 	if (stack_a.size > 3 && stack_a.size < 6)
 		ft_medium_sort(&stack_a, &stack_b);
 	else if (stack_a.size > 3)
@@ -45,42 +35,25 @@ int	main(int argc, char **argv)
 	return (0);
 }
 
-
-void	ft_select_insert(int *stack_a, int *size_a, int *stack_b, int *size_b)
+int	ft_build_stacks(t_stack *stack_a, t_stack *stack_b, char **str_arr)
 {
-	int	smallest;
-	int	n_smallest; 
-	int	n; 
-	int	i;
-	int	actual_size_a; 
+	int i;
 
-	n = *size_a / 9;
-	while (*size_a > 0)
+	stack_a->stack = malloc(sizeof(int) * stack_a->size);
+	if (!stack_a->stack)
+		return (0);
+	stack_b->stack = malloc(sizeof(int) * stack_a->size);
+	if (!stack_b->stack)
+		return (0);
+	i = 0;
+	while (i < stack_a->size)
 	{
-		actual_size_a = *size_a;
-		smallest = ft_find_smallest(stack_a, *size_a);
-		n_smallest = ft_find_n_smallest(stack_a, *size_a, n);
-		i = 0;
-		while (i < actual_size_a)
-		{
-			if (stack_a[0] >= smallest && stack_a[0] <= n_smallest)
-			{
-				ft_insertion(stack_a[0], stack_b, size_b);
-				ft_pb(stack_b, size_b, stack_a, size_a);
-				actual_size_a--;
-			}
-			else
-			{
-				ft_ra(stack_a, *size_a);
-				actual_size_a--;
-			}
-			i++;
-		}
+		stack_a->stack[i] = ft_atoi(str_arr[i]);
+		i++;
 	}
-	ft_bring_highest_to_the_top(stack_b, *size_b);
-	while (*size_b > 0)
-		ft_pa(stack_a, size_a, stack_b, size_b);
+	return (1);
 }
+
 
 void ft_insertion(int to_insert, int *stack_b, int *size_b)
 {
