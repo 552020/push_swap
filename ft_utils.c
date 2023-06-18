@@ -12,14 +12,14 @@
 
 #include "push_swap.h"
 
-char **ft_build_str_arr(int argc, char **argv, t_stack *stack_a)
+char	**ft_build_str_arr(int argc, char **argv, t_stack *stack_a)
 {
-	int i;
-	char **ret;
+	int		i;
+	char	**ret;
 
 	if (argc == 2)
 	{
-		ret = ft_split(argv[1], ' ');	
+		ret = ft_split(argv[1], ' ');
 		while (ret[(*stack_a).size])
 			(*stack_a).size++;
 	}
@@ -35,16 +35,16 @@ char **ft_build_str_arr(int argc, char **argv, t_stack *stack_a)
 		}
 	}
 	else
-		exit (0) ;
+		exit (0);
 	return (ret);
 }
 
 int	ft_find_smallest(int *stack_a, int size)
 {
-	int ret;
-	int i;
+	int	ret;
+	int	i;
 
-	i = 0;	
+	i = 0;
 	ret = stack_a[0];
 	while (i < size)
 	{
@@ -52,16 +52,15 @@ int	ft_find_smallest(int *stack_a, int size)
 			ret = stack_a[i];
 		i++;
 	}
-
 	return (ret);
 }
 
 int	ft_find_highest(int *stack, int size)
 {
-	int ret;
-	int i;
+	int	ret;
+	int	i;
 
-	i = 0;	
+	i = 0;
 	ret = stack[0];
 	while (i < size)
 	{
@@ -72,7 +71,7 @@ int	ft_find_highest(int *stack, int size)
 	return (ret);
 }
 
-int ft_find_idx_number(int *stack, int number)
+int	ft_find_idx_number(int *stack, int number)
 {
 	int	i;
 
@@ -82,34 +81,26 @@ int ft_find_idx_number(int *stack, int number)
 	return (i);
 }
 
-void	ft_print_stack(int *stack, int size)
+long int	ft_atol(const char *str)
 {
-	int i;
+	long int	nb;
+	int			isneg;
+	int			i;
 
-	if (!stack || size <= 0)
-		return;
-
+	nb = 0;
+	isneg = 1;
 	i = 0;
-    while (i < size)
-    {
-        printf("%d ", stack[i]);
-        i++;
-    }
-    printf("\n");
-}
-
-void ft_print_stacks(t_stack *stack_a, t_stack *stack_b)
-{
-	ft_printf("---\n");
-	ft_printf("***stack_a***\n");
-	ft_printf("stack_a.size: %d\n", stack_a->size);
-	ft_printf("stack_a: ");
-	ft_print_stack(stack_a->stack, stack_a->size);
-	ft_printf("\n");
-	ft_printf("***stack_b***\n");
-	ft_printf("stack_b.size: %d\n", stack_b->size);
-	ft_printf("stack_b: ");
-	ft_print_stack(stack_b->stack, stack_b->size);
-	ft_printf("\n");
-	ft_printf("---\n");
+	if (str[i] == '+')
+		i++;
+	else if (str[i] == '-')
+	{
+		isneg *= -1;
+		i++;
+	}
+	while (ft_isdigit(str[i]))
+	{
+		nb = (nb * 10) + (str[i] - '0');
+		i++;
+	}
+	return (nb * isneg);
 }

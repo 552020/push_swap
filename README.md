@@ -2,8 +2,6 @@
 
 ## Overview
 
-"Because Swap_push isn't as natural"
-
 [Push_Swap](link-to-the-pdf) is a project of the [School 42](https://www.42.fr/) about sorting numbers on a 'stack' (which actually [is not a pure stack](<https://en.wikipedia.org/wiki/Stack_(abstract_data_type)>)) using a restricted set of instructions.
 
 The aim of the project is to sort a set of integer values. We need not just to sort them, but we need to sort them with the least amount of steps, given the following limitations: we have only a certain amount of operations to our disposal, and we can use only two 'stacks' to sort the values. A stack 'A' which is supposed to hold the values we need to sort, in the order we initially get it, and an empty stack 'B' that we can use to sort them. One of the permitted operations allows us to move (pop) an element from the top of one of the two stack and put (push) it on the top of the other one.
@@ -49,3 +47,23 @@ Actually not, cause a stack is an abstract data type, which is well exemplfied b
 Complexity is mentioned in Chapter III. Discuss which kind of complexity we deal in this algorithm. I think it's not the 'normal' complexity we have to deal with.
 
 We have two kind of complexity: time complexity and space complexity. Time complexity is measured on the number of operations needed to perform the algorithm and space complexity refers to the memory needed to perform the algorithm.
+
+## Disclaimer about the Coding Style
+
+**Disclaimer:** This code has been written the "The Norm" of 42, which is a set of strict coding style rules. It aims to ensure consistency and readability of the codebase.
+
+The following are some of the principal rules enforced by the Norm:
+
+1. **Indentation**: Code should be indented using four spaces for each level of indentation to enhance clarity and maintain a consistent visual structure.
+
+2. **Function Length**: Functions should be kept concise, containing no more than twenty-five lines of code. This practice helps to manage complexity and improves code readability.
+
+3. **Naming Conventions**: Variables, functions, and files should be named with precision and brevity, following the recommended naming conventions. This promotes code understandability and consistency.
+
+4. **Headers**: Each source file should include a header at the beginning, providing essential information such as the author's name, the project's name, and a brief description of its purpose.
+
+5. **Forbidden Acts**: The Norm restricts the use of certain language features, such as `for` or `goto` statements, to ensure code quality and discourage potential pitfalls.
+
+While adhering to the Norm may initially present challenges, it fosters discipline and order in coding practices, resulting in clean and well-structured code. Embrace the Norm, and let it guide you towards creating code that is both functional and aesthetically pleasing.
+
+_Note: The Norm of 42 is specific to the 42 coding school, but its principles and best practices can be valuable in professional software development environments as well._
