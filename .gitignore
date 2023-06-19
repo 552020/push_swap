@@ -1,8 +1,6 @@
-<<<<<<< HEAD
-*.o
-libft/*.o
-=======
 *.sw*
 *.o
->>>>>>> add_libft
 venv/*
+.vscode/*
+
+
