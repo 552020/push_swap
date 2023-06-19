@@ -75,7 +75,7 @@ We have two kind of complexity: time complexity and space complexity. Time compl
 
 ## Disclaimer about the Coding Style
 
-**Disclaimer:** This code has been written the "The Norm" of 42, which is a set of strict coding style rules. It aims to ensure consistency and readability of the codebase.
+**Disclaimer:** This code has been written the "[The Norm](./en.norm.pdf)" of 42, which is a set of strict coding style rules. It aims to ensure consistency and readability of the codebase.
 
 The following are some of the principal rules enforced by the Norm:
 
