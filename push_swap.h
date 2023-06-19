@@ -37,7 +37,7 @@ typedef struct s_next_score{
 	int	score;
 }	t_next_score;
 
-typedef struct s_scores_simples{
+typedef struct s_scores_simple{
 	int	ra;
 	int	rra;
 	int	rb;

@@ -2,36 +2,34 @@
 
 ## Overview
 
-[Push_Swap](link-to-the-pdf) is a project of the [School 42](https://www.42.fr/) about sorting numbers on a 'stack' (which actually [is not a pure stack](<https://en.wikipedia.org/wiki/Stack_(abstract_data_type)>)) using a restricted set of instructions.
+[Push_Swap](./) is a project of the [School 42](https://www.42.fr/) about sorting numbers on a 'stack' (which actually [is not a pure stack](<https://en.wikipedia.org/wiki/Stack_(abstract_data_type)>)) using a restricted set of instructions.
 
 The aim of the project is to sort a set of integer values. We need not just to sort them, but we need to sort them with the least amount of steps, given the following limitations: we have only a certain amount of operations to our disposal, and we can use only two 'stacks' to sort the values. A stack 'A' which is supposed to hold the values we need to sort, in the order we initially get it, and an empty stack 'B' that we can use to sort them. One of the permitted operations allows us to move (pop) an element from the top of one of the two stack and put (push) it on the top of the other one.
 We need to write a program, that perform this sorting operation and give as an output not the sorted stack, but the exact sequence of operations we performed to sort the values in the queue.
 It's not the actual number of operations that count, but the operations printed by the program to sort the 'stack'. The project title "Push_Swap" refers to the core operations used in this data sorting exercise. It's important to note that the actual goal of the program is not to sort the integers in the first 'stack', but to print the operations necessary to sort them. The elements of the array in memory could remain unsorted! This lead to a particular conception of this project lies in its use of a modified concept of time complexity.
 
-### TODO
+## My approach
 
-We have at our disposal two "stack" or data collection structures. The first one is supposed to hold the integer values that we need to sort. We will get the integer values as arguments of our program, and we are supposed to fill the first stack with the given integers values. The second 'stack' is an empty stack, that we can use to sort the values hold in the first stack.
+My approach to solving the Push_Swap project involved initially attempting a naive approach similar to a selection sort. This approach involved finding the smallest integer in stack A, bringing it to the top of the stack, and then pushing it to stack B. However, I quickly realized that this approach was not efficient enough to handle larger sets of integers.
 
-- Explain in details why the data structure we have to our disposal is not a 'pure' stack.
+## TODO
 
-### Makefile
+[x] = main algorithm
+[x] - algorighm for small sets
+[x] - norminette
+[] - check all headers before submitting
+[] - eventually integrate ft_printf in libft
+[] - improve the README
 
-- Your Makefile must at least contain the rules $(NAME), all, clean, fclean and re.
+## Notes
 
-- I wrote a lot of commentaries in the Makefile itself. Move the commentaries from the Makefile to her.
-
-[X] Write a Makefile
-[] Write a Makefile that import libft.
-
-#### `:=` instead of `=`
+### `:=` instead of `=`
 
 - `:=` the value of the variable is fixed and can't be changed during the executioin of make. Is a good practice to use `:=` instead `=` for variables which values don't change during the execution
 
 #### make -C libft
 
 The make -C command is used to execute make in a subdirectory
-
-## Glossary
 
 ### Is the data structure we are given a stack?
 
