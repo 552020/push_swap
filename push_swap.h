@@ -42,7 +42,7 @@ typedef struct s_scores_simple{
 	int	rra;
 	int	rb;
 	int	rrb;
-}	t_scores_simples;
+}	t_scores_simple;
 
 typedef struct t_scores_combined{
 	int	rr;
