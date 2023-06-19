@@ -1,500 +1,221 @@
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-20
-19
-21
-22
-23
-24
-25
-26
-27
-28
-29
-31
-33
-34
-35
-36
-37
-38
-41
-43
-45
-47
-48
-30
-32
-39
-40
-42
-44
-46
-49
-50
-51
-52
-53
-54
-55
-56
-57
-59
-58
-60
-61
-62
-63
-64
-65
-66
-67
-68
-69
-70
-71
-72
-73
-74
-75
-76
-77
-78
-79
-80
-81
-82
-83
-84
-85
-86
-87
-88
-92
-89
-90
-91
-93
-94
-95
-96
-97
-98
-99
-100
-101
-102
-103
-104
-105
-106
-107
-108
-109
-110
-111
-112
-113
-114
-115
-116
-117
-118
-119
-120
-121
-122
-123
-124
-125
-126
-127
-128
-129
-130
-131
-132
-133
-134
-135
-136
-137
-138
-139
-140
-141
-142
-143
-144
-145
-146
-147
-148
-149
-150
-151
-152
-153
-154
-155
-156
-157
-158
-159
-160
-161
-162
-163
-164
-165
-166
-167
-168
-169
-170
-171
-172
-173
-174
-175
-176
-177
-178
-179
-180
-181
-182
-183
-184
-185
-186
-187
-190
-192
-188
-189
-191
-193
-194
-195
-196
-197
-198
-199
-200
-201
-202
-203
-204
-206
-207
-205
-208
-209
-210
-211
-212
-213
-214
-215
-216
-217
-218
-219
-220
-221
-222
-223
-224
-225
-228
-238
-239
-226
-227
-229
-230
-231
-232
-233
-234
-235
-236
-237
-240
-241
-242
-243
-244
-245
-246
-247
-248
-249
-250
-251
-252
-253
-254
-255
-256
-257
-258
-259
-260
-261
-262
-263
-264
-265
-266
-267
-268
-269
-270
-271
-272
-273
-274
-275
-276
-277
-278
-279
-280
-281
-282
-283
-284
-285
-286
-288
-287
-289
-290
-291
-292
-293
-294
-295
-296
-297
-298
-299
-300
-301
-302
-303
-304
-305
-306
-307
-308
-309
-310
-311
-312
-313
-314
-315
-316
-317
-318
-319
-320
-321
-322
-323
-324
-325
-326
-327
-328
-329
-330
-331
-332
-333
-334
-335
-336
-337
-338
-339
-340
-341
-342
-343
-344
-345
-346
-347
-348
-349
-350
-351
-352
-353
-354
-355
-356
-357
-358
-359
-360
-361
-362
-363
-364
-365
-366
-367
-368
-369
-370
-371
-372
-373
-374
-375
-376
-377
-378
-379
-380
-381
-383
-384
-385
-382
-386
-387
-388
-389
-390
-391
-392
-393
-394
-395
-396
-397
-398
-399
-400
-401
-402
-403
-404
-405
-406
-407
-408
-409
-410
-411
-412
-413
-414
-415
-416
-417
-418
-419
-420
-421
-423
-430
-422
-424
-425
-426
-427
-428
-429
-432
-431
-433
-434
-435
-436
-437
-438
-439
-440
-441
-442
-443
-444
-445
-446
-447
-448
-449
-450
-451
-452
-453
-454
-455
-456
-457
-458
-459
-460
-461
-462
-463
-464
-465
-466
-467
-468
-469
-470
-471
-472
-473
-474
-475
-476
-477
-478
-479
-480
-481
-482
-483
-484
-487
-485
-486
-488
-489
-490
-491
-492
-493
-494
-495
-496
-497
-498
-499
-500
+ft_count_sort!
+
+
+ft_find_next
+
+
+ft_find_score
+find_scores_simple
+to_be_scored: 1
+tss.ra: 0
+tss.rra: 0
+tss.rb: 0
+tss.rrb: 0
+tsc.rr: 0
+tsc.rrr: 0
+tsc.ra_rrb: 0
+tsc.rb_rra: 0
+best.value: 1
+best.rotation: 1
+before the while loop
+
+
+ft_find_score
+find_scores_simple
+to_be_scored: 1
+tss.ra: 0
+tss.rra: 0
+tss.rb: 0
+tss.rrb: 0
+tsc.rr: 0
+tsc.rrr: 0
+tsc.ra_rrb: 0
+tsc.rb_rra: 0
+
+
+ft_find_score
+find_scores_simple
+to_be_scored: 3
+tss.ra: 1
+tss.rra: 12
+tss.rb: 0
+tss.rrb: 0
+tsc.rr: 1
+tsc.rrr: 0
+tsc.ra_rrb: 1
+tsc.rb_rra: 12
+
+
+ft_find_score
+find_scores_simple
+to_be_scored: 7
+tss.ra: 2
+tss.rra: 11
+tss.rb: 0
+tss.rrb: 0
+tsc.rr: 2
+tsc.rrr: 0
+tsc.ra_rrb: 2
+tsc.rb_rra: 11
+
+
+ft_find_score
+find_scores_simple
+to_be_scored: 5
+tss.ra: 3
+tss.rra: 10
+tss.rb: 0
+tss.rrb: 0
+tsc.rr: 3
+tsc.rrr: 0
+tsc.ra_rrb: 3
+tsc.rb_rra: 10
+
+
+ft_find_score
+find_scores_simple
+to_be_scored: 9
+tss.ra: 4
+tss.rra: 9
+tss.rb: 0
+tss.rrb: 0
+tsc.rr: 4
+tsc.rrr: 0
+tsc.ra_rrb: 4
+tsc.rb_rra: 9
+
+
+ft_find_score
+find_scores_simple
+to_be_scored: 2
+tss.ra: 5
+tss.rra: 8
+tss.rb: 0
+tss.rrb: 0
+tsc.rr: 5
+tsc.rrr: 0
+tsc.ra_rrb: 5
+tsc.rb_rra: 8
+
+
+ft_find_score
+find_scores_simple
+to_be_scored: 4
+tss.ra: 6
+tss.rra: 7
+tss.rb: 0
+tss.rrb: 0
+tsc.rr: 6
+tsc.rrr: 0
+tsc.ra_rrb: 6
+tsc.rb_rra: 7
+
+
+ft_find_score
+find_scores_simple
+to_be_scored: 11
+tss.ra: 7
+tss.rra: 6
+tss.rb: 0
+tss.rrb: 0
+tsc.rr: 7
+tsc.rrr: 0
+tsc.ra_rrb: 7
+tsc.rb_rra: 6
+
+
+ft_find_score
+find_scores_simple
+to_be_scored: 19
+tss.ra: 8
+tss.rra: 5
+tss.rb: 0
+tss.rrb: 0
+tsc.rr: 8
+tsc.rrr: 0
+tsc.ra_rrb: 8
+tsc.rb_rra: 5
+
+
+ft_find_score
+find_scores_simple
+to_be_scored: 14
+tss.ra: 9
+tss.rra: 4
+tss.rb: 0
+tss.rrb: 0
+tsc.rr: 9
+tsc.rrr: 0
+tsc.ra_rrb: 9
+tsc.rb_rra: 4
+
+
+ft_find_score
+find_scores_simple
+to_be_scored: 13
+tss.ra: 10
+tss.rra: 3
+tss.rb: 0
+tss.rrb: 0
+tsc.rr: 10
+tsc.rrr: 0
+tsc.ra_rrb: 10
+tsc.rb_rra: 3
+
+
+ft_find_score
+find_scores_simple
+to_be_scored: 17
+tss.ra: 11
+tss.rra: 2
+tss.rb: 0
+tss.rrb: 0
+tsc.rr: 11
+tsc.rrr: 0
+tsc.ra_rrb: 11
+tsc.rb_rra: 2
+
+
+ft_find_score
+find_scores_simple
+to_be_scored: 6
+tss.ra: 12
+tss.rra: 1
+tss.rb: 0
+tss.rrb: 0
+tsc.rr: 12
+tsc.rrr: 0
+tsc.ra_rrb: 12
+tsc.rb_rra: 1
+###
+after the while loop
+ret.value: 1
+ret.rotation: 1
+ft_count_sort again
+stacks before ft_push_next
+---
+***stack_a***
+stack_a.size: 13
+stack_a: 
+***stack_b***
+stack_b.size: 0
+stack_b: 
+---
+next.value: 1
+next.rotation: 1
+pb
+find_scores_combined
+find_scores_combined
+find_scores_combined
+find_scores_combined
+find_scores_combined
+find_scores_combined
+find_scores_combined
+find_scores_combined
+find_scores_combined
+find_scores_combined
+find_scores_combined
+find_scores_combined
+find_scores_combined
+find_scores_combined
+1 3 7 5 9 2 4 11 19 14 13 17 6 
