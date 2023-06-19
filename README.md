@@ -2,11 +2,38 @@
 
 ## Overview
 
-[Push_Swap](./) is a project of the [School 42](https://www.42.fr/) about sorting numbers on a 'stack' (which actually [is not a pure stack](<https://en.wikipedia.org/wiki/Stack_(abstract_data_type)>)) using a restricted set of instructions.
+[Push_Swap](./en.subject.pdf) is a project of the [School 42](https://www.42berlin.de/) about sorting numbers on a 'stack' A, with the help of auxiliary stack B and using a restricted set of instructions, which are:
 
-The aim of the project is to sort a set of integer values. We need not just to sort them, but we need to sort them with the least amount of steps, given the following limitations: we have only a certain amount of operations to our disposal, and we can use only two 'stacks' to sort the values. A stack 'A' which is supposed to hold the values we need to sort, in the order we initially get it, and an empty stack 'B' that we can use to sort them. One of the permitted operations allows us to move (pop) an element from the top of one of the two stack and put (push) it on the top of the other one.
-We need to write a program, that perform this sorting operation and give as an output not the sorted stack, but the exact sequence of operations we performed to sort the values in the queue.
-It's not the actual number of operations that count, but the operations printed by the program to sort the 'stack'. The project title "Push_Swap" refers to the core operations used in this data sorting exercise. It's important to note that the actual goal of the program is not to sort the integers in the first 'stack', but to print the operations necessary to sort them. The elements of the array in memory could remain unsorted! This lead to a particular conception of this project lies in its use of a modified concept of time complexity.
+- _sa_: Swap the top two elements of stack A. (Swap A)
+- _sb_: Swap the top two elements of stack B. (Swap B)
+- _ss_: Swap the top two elements of both stack A and stack B simultaneously. (Swap both)
+- _pa_: Pop the top element from stack B and push it onto the top of stack A. (Push A)
+- _pb_: Pop the top element from stack A and push it onto stack B. (Push B)
+- _ra_: Rotate all elements of stack A upward by one. The top element becomes the bottom element. (Rotate A)
+- _rb_: Rotate all elements of stack B upward by one. The top element becomes the bottom element. (Rotate B)
+- _rr_: Rotate all elements of both stack A and stack B upward by one. (Rotate both)
+- _rra_: Rotate all elements of stack A downward by one. The bottom element becomes the top element. (Reverse rotate A)
+- _rrb_: Rotate all elements of stack B downward by one. The bottom element becomes the top element. (Reverse rotate B)
+- _rrr_: Rotate all elements of both stack A and stack B downward by one. (Reverse rotate both)
+
+As you can see from the permitted operations the 'stack' is not a 'real' stack, but this is the way this data strcture is referenced in the instructions.
+
+We need not just to sort them, but we need to sort within a certain amount of steps, which will determine the evaluation:
+
+3 numbers -> 2 or 3 moves
+5 numbers -> <12 moves
+100 numbers:
+<700 moves = 5 pts
+<900 moves = 4 pts
+<1,100 moves = 3 pts
+<1,300 moves = 2 pts
+<1,500 moves = 1 pts
+500 numbers:
+<5,500 moves = 5 pts
+<7,000 moves = 4 pts
+
+A move is not an operation like in the normal time complexity meaning but it a 'printed operation'.
+At this point it's important to note that it's not the actual number of operations that count, but the operations printed by the program to sort the 'stack'. The actual goal of the program is not to sort the integers in the first 'stack', but to print the operations necessary to sort them. The elements of the array in memory could remain unsorted, and actually we could even don't build an array or any data structure holding the values we get as an input.
 
 ## My approach
 
@@ -14,12 +41,12 @@ My approach to solving the Push_Swap project involved initially attempting a nai
 
 ## TODO
 
-[x] = main algorithm
-[x] - algorighm for small sets
-[x] - norminette
-[] - check all headers before submitting
-[] - eventually integrate ft_printf in libft
-[] - improve the README
+- [x] main algorithm
+- [x] algorighm for small sets
+- [x] norminette
+- [ ] check all headers before submitting
+- [ ] eventually integrate ft_printf in libft
+- [ ] improve the README
 
 ## Notes
 
