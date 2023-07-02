@@ -28,7 +28,7 @@ NAME = push_swap
 
 # We need to have an all rule.
 
-all = $(NAME)
+all: $(NAME)
 
 # This is the first target listed in the Makefile. When we call `make` withouth specifying any rule it will run the first rule it finds. If we have just one file let's say push_swap.c in the directory where we call make we could write this rule as `push_swap: push_swap.o`.
 
@@ -68,7 +68,8 @@ fclean: clean
 	rm -f ft_printf/libftprintf.a
 
 re:
-	fclean all
+	make fclean 
+	make all
 
 run: $(NAME)
 	 ./$(NAME) $(ARG)
