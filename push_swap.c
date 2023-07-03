@@ -12,11 +12,11 @@
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
-{	
-	char	**str_arr;
-	t_stack	stack_a;
-	t_stack	stack_b;
+int main(int argc, char **argv)
+{
+	char **str_arr;
+	t_stack stack_a;
+	t_stack stack_b;
 
 	stack_a.size = 0;
 	stack_b.size = 0;
@@ -36,9 +36,9 @@ int	main(int argc, char **argv)
 	return (0);
 }
 
-int	ft_build_stacks(t_stack *stack_a, t_stack *stack_b, char **str_arr)
+int ft_build_stacks(t_stack *stack_a, t_stack *stack_b, char **str_arr)
 {
-	int	i;
+	int i;
 
 	stack_a->stack = malloc(sizeof(int) * stack_a->size);
 	if (!stack_a->stack)
@@ -55,11 +55,11 @@ int	ft_build_stacks(t_stack *stack_a, t_stack *stack_b, char **str_arr)
 	return (1);
 }
 
-int	ft_find_next_smallest(int to_insert, int *stack, int size)
+int ft_find_next_smallest(int to_insert, int *stack, int size)
 {
-	int	i;
-	int	highest_b;
-	int	next_smallest;
+	int i;
+	int highest_b;
+	int next_smallest;
 
 	highest_b = ft_find_highest(stack, size);
 	next_smallest = highest_b;
@@ -75,10 +75,10 @@ int	ft_find_next_smallest(int to_insert, int *stack, int size)
 	return (next_smallest);
 }
 
-void	ft_bring_highest_to_the_top(int *stack, int size_stack)
+void ft_bring_highest_to_the_top(int *stack, int size_stack)
 {
-	int	highest;
-	int	idx_highest;
+	int highest;
+	int idx_highest;
 
 	highest = ft_find_highest(stack, size_stack);
 	idx_highest = ft_find_idx_number(stack, highest);

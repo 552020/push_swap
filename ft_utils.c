@@ -12,10 +12,10 @@
 
 #include "push_swap.h"
 
-char	**ft_build_str_arr(int argc, char **argv, t_stack *stack_a)
+char **ft_build_str_arr(int argc, char **argv, t_stack *stack_a)
 {
-	int		i;
-	char	**ret;
+	int i;
+	char **ret;
 
 	if (argc == 2)
 	{
@@ -26,23 +26,32 @@ char	**ft_build_str_arr(int argc, char **argv, t_stack *stack_a)
 	else if (argc > 2)
 	{
 		i = 1;
-		ret = malloc (sizeof(char *) * argc - 1);
+		ret = malloc(sizeof(char *) * (argc - 1));
+		if (!ret)
+			return (NULL);
 		while (i < argc)
 		{
 			ret[i - 1] = ft_strdup(argv[i]);
+			if (!ret[i - 1])
+			{
+				while (i > 0)
+					free(ret[i--]);
+				free(ret);
+				return (NULL);
+			}
 			i++;
 			(*stack_a).size++;
 		}
 	}
 	else
-		exit (0);
+		exit(0);
 	return (ret);
 }
 
-int	ft_find_smallest(int *stack_a, int size)
+int ft_find_smallest(int *stack_a, int size)
 {
-	int	ret;
-	int	i;
+	int ret;
+	int i;
 
 	i = 0;
 	ret = stack_a[0];
@@ -55,10 +64,10 @@ int	ft_find_smallest(int *stack_a, int size)
 	return (ret);
 }
 
-int	ft_find_highest(int *stack, int size)
+int ft_find_highest(int *stack, int size)
 {
-	int	ret;
-	int	i;
+	int ret;
+	int i;
 
 	i = 0;
 	ret = stack[0];
@@ -71,9 +80,9 @@ int	ft_find_highest(int *stack, int size)
 	return (ret);
 }
 
-int	ft_find_idx_number(int *stack, int number)
+int ft_find_idx_number(int *stack, int number)
 {
-	int	i;
+	int i;
 
 	i = 0;
 	while (number != stack[i])
@@ -81,11 +90,11 @@ int	ft_find_idx_number(int *stack, int number)
 	return (i);
 }
 
-long int	ft_atol(const char *str)
+long int ft_atol(const char *str)
 {
-	long int	nb;
-	int			isneg;
-	int			i;
+	long int nb;
+	int isneg;
+	int i;
 
 	nb = 0;
 	isneg = 1;
