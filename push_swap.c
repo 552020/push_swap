@@ -31,6 +31,7 @@ int main(int argc, char **argv)
 		ft_count_sort(&stack_a, &stack_b);
 	else
 		ft_small_sort(&stack_a);
+	free(str_arr);
 	free(stack_a.stack);
 	free(stack_b.stack);
 	return (0);
