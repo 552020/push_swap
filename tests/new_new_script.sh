@@ -2,8 +2,8 @@
 
 # Variables
 total_numbers=500
-total_lines=0
-highest_value=-1
+total_lines=1
+highest_value=0
 lowest_value=-1
 total_runs=100  # Number of runs
 numbers_file="numbers.txt"  # File to store the randomly generated numbers
