@@ -2,4 +2,4 @@
 *.o
 *.a
 venv/*
-.vscode/
+.vscode/tests/summary.txt

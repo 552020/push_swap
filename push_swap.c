@@ -49,10 +49,12 @@ int ft_build_stacks(t_stack *stack_a, t_stack *stack_b, char **str_arr)
 {
 	int i;
 
-	stack_a->stack = malloc(sizeof(int) * stack_a->size);
+	// stack_a->stack = malloc(sizeof(int) * stack_a->size);
+	stack_a->stack = ft_calloc(stack_a->size, sizeof(int));
 	if (!stack_a->stack)
 		return (0);
-	stack_b->stack = malloc(sizeof(int) * stack_a->size);
+	// stack_a->stack = malloc(sizeof(int) * stack_a->size);
+	stack_b->stack = ft_calloc(stack_a->size, sizeof(int));
 	if (!stack_b->stack)
 		return (0);
 	i = 0;
