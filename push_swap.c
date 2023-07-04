@@ -12,16 +12,15 @@
 
 #include "push_swap.h"
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	char **str_arr;
-	t_stack stack_a;
-	t_stack stack_b;
-	int i;
+	char		**str_arr;
+	t_stack		stack_a;
+	t_stack		stack_b;
+	int			i;
 
 	stack_a.size = 0;
 	stack_b.size = 0;
-
 	if (!ft_check_input(argv))
 		ft_write_error();
 	str_arr = ft_build_str_arr(argc, argv, &stack_a);
@@ -31,29 +30,23 @@ int main(int argc, char **argv)
 		ft_medium_sort(&stack_a, &stack_b);
 	else if (stack_a.size > 3)
 		ft_count_sort(&stack_a, &stack_b);
-
 	else
 		ft_small_sort(&stack_a);
 	i = 0;
 	while (str_arr[i])
-	{
-		free(str_arr[i]);
-		i++;
-	}
+		free(str_arr[i++]);
 	free(str_arr);
 	free(stack_a.stack);
 	free(stack_b.stack);
 }
 
-int ft_build_stacks(t_stack *stack_a, t_stack *stack_b, char **str_arr)
+int	ft_build_stacks(t_stack *stack_a, t_stack *stack_b, char **str_arr)
 {
-	int i;
+	int	i;
 
-	// stack_a->stack = malloc(sizeof(int) * stack_a->size);
 	stack_a->stack = ft_calloc(stack_a->size, sizeof(int));
 	if (!stack_a->stack)
 		return (0);
-	// stack_a->stack = malloc(sizeof(int) * stack_a->size);
 	stack_b->stack = ft_calloc(stack_a->size, sizeof(int));
 	if (!stack_b->stack)
 		return (0);
@@ -66,11 +59,11 @@ int ft_build_stacks(t_stack *stack_a, t_stack *stack_b, char **str_arr)
 	return (1);
 }
 
-int ft_find_next_smallest(int to_insert, int *stack, int size)
+int	ft_find_next_smallest(int to_insert, int *stack, int size)
 {
-	int i;
-	int highest_b;
-	int next_smallest;
+	int	i;
+	int	highest_b;
+	int	next_smallest;
 
 	highest_b = ft_find_highest(stack, size);
 	next_smallest = highest_b;
@@ -83,15 +76,13 @@ int ft_find_next_smallest(int to_insert, int *stack, int size)
 	}
 	if (size > 0 && stack[size - 1] > to_insert && stack[0] < to_insert)
 		next_smallest = stack[0];
-	// if (stack[size - 1] > to_insert && stack[0] < to_insert)
-	// 	next_smallest = stack[0];
 	return (next_smallest);
 }
 
-void ft_bring_highest_to_the_top(int *stack, int size_stack)
+void	ft_bring_highest_to_the_top(int *stack, int size_stack)
 {
-	int highest;
-	int idx_highest;
+	int	highest;
+	int	idx_highest;
 
 	highest = ft_find_highest(stack, size_stack);
 	idx_highest = ft_find_idx_number(stack, highest);

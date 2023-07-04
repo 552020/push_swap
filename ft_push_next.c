@@ -17,12 +17,12 @@
 #define RA_RRB 3
 #define RB_RRA 4
 
-void ft_push_next(t_stack *stack_a, t_stack *stack_b, t_next next)
+void	ft_push_next(t_stack *stack_a, t_stack *stack_b, t_next next)
 {
-	int next_smallest;
+	int	next_smallest;
 
 	next_smallest = ft_find_next_smallest(next.value,
-										  stack_b->stack, stack_b->size);
+			stack_b->stack, stack_b->size);
 	if (next.rotation == RR)
 		ft_push_next_rr(stack_a, stack_b, next, next_smallest);
 	if (next.rotation == RRR)
@@ -33,13 +33,14 @@ void ft_push_next(t_stack *stack_a, t_stack *stack_b, t_next next)
 		ft_push_next_rb_rra(stack_a, stack_b, next, next_smallest);
 }
 
-void ft_push_next_rr(t_stack *stack_a, t_stack *stack_b,
-					 t_next next, int next_smallest)
+void	ft_push_next_rr(t_stack *stack_a, t_stack *stack_b,
+					t_next next, int next_smallest)
 {
-	while (stack_a->stack[0] != next.value || stack_b->stack[0] != next_smallest)
-
+	while (stack_a->stack[0] != next.value
+		|| stack_b->stack[0] != next_smallest)
 	{
-		if (stack_a->stack[0] != next.value && stack_b->stack[0] != next_smallest)
+		if (stack_a->stack[0] != next.value
+			&& stack_b->stack[0] != next_smallest)
 			ft_rr(stack_a->stack, stack_a->size, stack_b->stack, stack_b->size);
 		else if (stack_a->stack[0] != next.value)
 			ft_ra(stack_a->stack, stack_a->size);
@@ -49,14 +50,16 @@ void ft_push_next_rr(t_stack *stack_a, t_stack *stack_b,
 	ft_pb(stack_b->stack, &stack_b->size, stack_a->stack, &stack_a->size);
 }
 
-void ft_push_next_rrr(t_stack *stack_a, t_stack *stack_b,
-					  t_next next, int next_smallest)
+void	ft_push_next_rrr(t_stack *stack_a, t_stack *stack_b,
+					t_next next, int next_smallest)
 {
-	while (stack_a->stack[0] != next.value || stack_b->stack[0] != next_smallest)
+	while (stack_a->stack[0] != next.value
+		|| stack_b->stack[0] != next_smallest)
 	{
-		if (stack_a->stack[0] != next.value && stack_b->stack[0] != next_smallest)
+		if (stack_a->stack[0] != next.value
+			&& stack_b->stack[0] != next_smallest)
 			ft_rrr(stack_a->stack, stack_a->size,
-				   stack_b->stack, stack_b->size);
+				stack_b->stack, stack_b->size);
 		else if (stack_a->stack[0] != next.value)
 			ft_rra(stack_a->stack, stack_a->size);
 		else
@@ -65,8 +68,8 @@ void ft_push_next_rrr(t_stack *stack_a, t_stack *stack_b,
 	ft_pb(stack_b->stack, &stack_b->size, stack_a->stack, &stack_a->size);
 }
 
-void ft_push_next_ra_rrb(t_stack *stack_a, t_stack *stack_b,
-						 t_next next, int next_smallest)
+void	ft_push_next_ra_rrb(t_stack *stack_a, t_stack *stack_b,
+						t_next next, int next_smallest)
 {
 	while (stack_a->stack[0] != next.value)
 		ft_ra(stack_a->stack, stack_a->size);
@@ -75,8 +78,8 @@ void ft_push_next_ra_rrb(t_stack *stack_a, t_stack *stack_b,
 	ft_pb(stack_b->stack, &stack_b->size, stack_a->stack, &stack_a->size);
 }
 
-void ft_push_next_rb_rra(t_stack *stack_a, t_stack *stack_b,
-						 t_next next, int next_smallest)
+void	ft_push_next_rb_rra(t_stack *stack_a, t_stack *stack_b,
+		t_next next, int next_smallest)
 {
 	while (stack_a->stack[0] != next.value)
 		ft_rra(stack_a->stack, stack_a->size);
