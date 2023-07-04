@@ -26,7 +26,8 @@ char **ft_build_str_arr(int argc, char **argv, t_stack *stack_a)
 	else if (argc > 2)
 	{
 		i = 1;
-		ret = malloc(sizeof(char *) * (argc - 1));
+		// ret = malloc(sizeof(char *) * (argc - 1));
+		ret = ft_calloc(argc, sizeof(char *));
 		if (!ret)
 			return (NULL);
 		while (i < argc)
@@ -35,7 +36,7 @@ char **ft_build_str_arr(int argc, char **argv, t_stack *stack_a)
 			if (!ret[i - 1])
 			{
 				while (i > 0)
-					free(ret[i--]);
+					free(ret[--i]);
 				free(ret);
 				return (NULL);
 			}

@@ -13,7 +13,7 @@ run_valgrind() {
     echo "$numbers" > $numbers_file
     valgrind --leak-check=full --log-file=$leaks_file $program $numbers
     grep "ERROR SUMMARY:" $leaks_file >> $summary_file
-    rm $numbers_file
+    # rm $numbers_file
 }
 
 # Remove old summary file and create a new empty one
@@ -38,4 +38,4 @@ cat $summary_file
 
 # Remove the Valgrind output file and the summary file
 # rm $leaks_file
-# rm $summary_file
+#rm $summary_file

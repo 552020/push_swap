@@ -13,7 +13,7 @@ run_push_swap() {
     # local numbers=$(shuf -i 1-500 -n 500 | tr '\n' ' ')
 	local numbers=$(shuf -i 1-$total_numbers -n $total_numbers | tr '\n' ' ')
     echo "$numbers" > $numbers_file
-    local lines=$(./push_swap $numbers | wc -l)
+    local lines=$(../push_swap $numbers | wc -l)
     rm $numbers_file
     echo $lines
 }

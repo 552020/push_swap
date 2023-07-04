@@ -17,9 +17,11 @@ int main(int argc, char **argv)
 	char **str_arr;
 	t_stack stack_a;
 	t_stack stack_b;
+	int i;
 
 	stack_a.size = 0;
 	stack_b.size = 0;
+
 	if (!ft_check_input(argv))
 		ft_write_error();
 	str_arr = ft_build_str_arr(argc, argv, &stack_a);
@@ -29,12 +31,18 @@ int main(int argc, char **argv)
 		ft_medium_sort(&stack_a, &stack_b);
 	else if (stack_a.size > 3)
 		ft_count_sort(&stack_a, &stack_b);
+
 	else
 		ft_small_sort(&stack_a);
+	i = 0;
+	while (str_arr[i])
+	{
+		free(str_arr[i]);
+		i++;
+	}
 	free(str_arr);
 	free(stack_a.stack);
 	free(stack_b.stack);
-	return (0);
 }
 
 int ft_build_stacks(t_stack *stack_a, t_stack *stack_b, char **str_arr)
@@ -71,8 +79,10 @@ int ft_find_next_smallest(int to_insert, int *stack, int size)
 			next_smallest = stack[i + 1];
 		i++;
 	}
-	if (stack[size - 1] > to_insert && stack[0] < to_insert)
+	if (size > 0 && stack[size - 1] > to_insert && stack[0] < to_insert)
 		next_smallest = stack[0];
+	// if (stack[size - 1] > to_insert && stack[0] < to_insert)
+	// 	next_smallest = stack[0];
 	return (next_smallest);
 }
 

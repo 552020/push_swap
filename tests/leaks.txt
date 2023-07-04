@@ -1,64 +1,31 @@
-==20396== Memcheck, a memory error detector
-==20396== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==20396== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==20396== Command: ../push_swap 72 470 419 49 68 63 255 340 40 220 4 56 267 313 174 317 294 461 498 163 377 279 190 34 320 455 424 495 373 307 183 387 209 92 447 30 499 173 427 309 113 14 85 266 323 275 463 99 88 366 404 20 413 106 135 467 443 13 96 203 119 471 333 158 391 299 207 118 200 23 140 389 31 405 254 59 351 242 143 314 132 157 440 276 237 194 262 36 226 426 286 316 137 223 222 399 172 434 453 184 80 205 439 359 44 462 446 315 306 221 474 290 84 331 3 250 249 162 403 330 55 125 8 180 204 196 401 425 54 329 52 10 487 438 388 32 197 465 192 41 225 364 230 240 274 420 245 355 477 448 187 1 436 48 116 327 104 480 476 166 148 358 33 217 79 486 215 12 152 188 93 456 141 283 344 341 35 324 239 168 278 430 374 302 241 43 444 458 87 496 500 69 451 170 472 390 490 482 11 435 248 18 122 189 120 260 349 175 460 133 71 277 198 213 261 282 265 407 169 396 238 50 134 375 304 105 292 216 319 350 67 131 269 91 233 26 95 208 117 224 253 361 161 182 231 145 485 488 433 464 481 98 60 303 378 479 90 108 441 179 287 127 297 321 57 454 185 97 89 103 47 246 400 466 144 77 354 273 452 368 264 214 414 406 338 395 178 66 16 371 386 229 431 128 176 300 268 352 5 191 21 491 53 360 38 442 102 234 206 437 257 308 94 202 259 211 457 167 82 270 415 449 177 154 124 111 51 369 383 7 126 107 342 398 155 70 356 138 409 336 291 432 6 475 357 450 301 123 380 318 75 272 312 408 9 149 251 218 156 298 367 25 159 76 372 295 421 370 101 492 484 235 293 73 412 110 322 164 153 165 247 86 100 232 365 109 478 181 195 81 58 489 411 37 17 459 445 29 199 61 280 19 469 45 416 402 151 171 334 227 65 22 64 385 219 328 256 243 136 160 376 193 345 497 83 39 281 271 473 263 228 493 494 150 337 142 212 326 42 296 15 121 27 130 423 146 115 201 244 62 332 288 346 428 362 339 468 289 258 252 417 2 285 353 418 129 393 139 483 347 379 310 24 46 325 284 147 381 363 74 305 429 112 335 410 186 210 78 236 394 114 311 384 392 343 348 422 382 397 28
-==20396== Parent PID: 20338
-==20396== 
-==20396== Invalid read of size 4
-==20396==    at 0x109491: ft_find_next_smallest (push_swap.c:73)
-==20396==    by 0x10ABA4: ft_find_score_rb (ft_find_scores.c:53)
-==20396==    by 0x10AB47: ft_find_scores_simple (ft_find_scores.c:40)
-==20396==    by 0x10AA6E: ft_find_score (ft_find_scores.c:22)
-==20396==    by 0x10A2AA: ft_find_next (ft_count_sort.c:42)
-==20396==    by 0x10A1C2: ft_count_sort (ft_count_sort.c:26)
-==20396==    by 0x1092C8: main (push_swap.c:31)
-==20396==  Address 0x4aa847c is 4 bytes before a block of size 2,000 alloc'd
-==20396==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==20396==    by 0x10936B: ft_build_stacks (push_swap.c:46)
-==20396==    by 0x10927D: main (push_swap.c:26)
-==20396== 
-==20396== Conditional jump or move depends on uninitialised value(s)
-==20396==    at 0x109CB1: ft_find_idx_number (ft_utils.c:79)
-==20396==    by 0x10ABB8: ft_find_score_rb (ft_find_scores.c:55)
-==20396==    by 0x10AB47: ft_find_scores_simple (ft_find_scores.c:40)
-==20396==    by 0x10AA6E: ft_find_score (ft_find_scores.c:22)
-==20396==    by 0x10A2AA: ft_find_next (ft_count_sort.c:42)
-==20396==    by 0x10A1C2: ft_count_sort (ft_count_sort.c:26)
-==20396==    by 0x1092C8: main (push_swap.c:31)
-==20396== 
-==20396== Invalid read of size 4
-==20396==    at 0x109491: ft_find_next_smallest (push_swap.c:73)
-==20396==    by 0x10A686: ft_push_next (ft_push_next.c:24)
-==20396==    by 0x10A1DD: ft_count_sort (ft_count_sort.c:27)
-==20396==    by 0x1092C8: main (push_swap.c:31)
-==20396==  Address 0x4aa847c is 4 bytes before a block of size 2,000 alloc'd
-==20396==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==20396==    by 0x10936B: ft_build_stacks (push_swap.c:46)
-==20396==    by 0x10927D: main (push_swap.c:26)
-==20396== 
-==20396== Conditional jump or move depends on uninitialised value(s)
-==20396==    at 0x10A7CF: ft_push_next_rr (ft_push_next.c:40)
-==20396==    by 0x10A6A8: ft_push_next (ft_push_next.c:27)
-==20396==    by 0x10A1DD: ft_count_sort (ft_count_sort.c:27)
-==20396==    by 0x1092C8: main (push_swap.c:31)
-==20396== 
-==20396== 
-==20396== HEAP SUMMARY:
-==20396==     in use at exit: 5,899 bytes in 501 blocks
-==20396==   total heap usage: 503 allocs, 2 frees, 9,899 bytes allocated
-==20396== 
-==20396== 5,899 (4,007 direct, 1,892 indirect) bytes in 1 blocks are definitely lost in loss record 2 of 2
-==20396==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==20396==    by 0x109B3E: ft_build_str_arr (ft_utils.c:29)
-==20396==    by 0x109262: main (push_swap.c:25)
-==20396== 
-==20396== LEAK SUMMARY:
-==20396==    definitely lost: 4,007 bytes in 1 blocks
-==20396==    indirectly lost: 1,892 bytes in 500 blocks
-==20396==      possibly lost: 0 bytes in 0 blocks
-==20396==    still reachable: 0 bytes in 0 blocks
-==20396==         suppressed: 0 bytes in 0 blocks
-==20396== 
-==20396== Use --track-origins=yes to see where uninitialised values come from
-==20396== For lists of detected and suppressed errors, rerun with: -s
-==20396== ERROR SUMMARY: 1005 errors from 5 contexts (suppressed: 0 from 0)
+==64484== Memcheck, a memory error detector
+==64484== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==64484== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==64484== Command: ../push_swap 43 162 318 344 287 274 179 51 403 289 19 208 239 384 356 395 426 466 385 173 16 116 195 300 393 76 134 299 130 415 286 307 253 475 148 64 62 156 221 121 71 320 255 165 233 113 362 451 244 181 86 349 228 257 292 197 145 433 94 49 364 254 198 273 151 132 14 138 452 259 418 386 470 457 402 285 45 409 103 168 241 260 283 63 44 397 478 347 158 266 200 276 354 332 217 180 280 312 410 52 249 11 178 128 247 118 37 358 294 248 436 186 207 193 372 482 159 359 291 448 22 152 190 188 440 484 170 379 84 277 469 101 387 282 298 149 224 227 449 411 212 90 435 473 404 378 3 4 96 490 92 237 315 281 497 99 256 15 104 430 243 325 185 460 77 345 462 9 56 30 431 100 420 353 407 365 499 42 203 480 171 110 220 59 424 93 150 234 70 400 468 23 57 137 303 304 80 131 314 120 83 126 394 189 50 41 115 275 205 75 129 324 107 140 405 240 91 486 154 194 350 481 246 163 456 61 250 270 391 483 251 272 161 109 412 223 8 399 142 491 79 500 187 328 66 419 236 458 487 439 40 492 219 230 123 12 434 390 74 34 355 371 206 265 308 309 153 333 133 87 442 204 5 21 305 488 429 474 467 493 414 477 341 351 97 218 297 232 437 295 454 476 343 346 72 58 183 167 374 438 108 202 464 279 357 199 172 421 342 20 319 69 10 321 323 33 229 226 38 313 373 175 117 169 36 67 182 238 176 340 498 446 450 413 432 201 284 258 445 472 225 2 369 352 461 245 78 322 48 47 388 408 191 316 335 209 177 423 85 422 68 155 401 494 54 453 375 485 427 310 463 268 465 82 339 377 32 53 471 6 489 380 125 35 89 102 114 184 98 278 105 370 261 17 398 441 18 146 306 301 338 326 443 396 329 143 293 141 13 242 495 25 361 216 7 348 27 157 383 392 367 210 55 269 264 416 267 60 1 73 174 425 213 406 119 106 288 122 231 366 444 39 447 311 81 417 135 235 211 65 95 363 144 302 376 336 317 330 26 88 46 382 271 252 263 136 164 262 327 214 459 31 428 360 192 389 166 215 112 111 29 368 24 124 381 334 296 139 331 455 28 147 160 222 496 127 290 337 196 479
+==64484== Parent PID: 64434
+==64484== 
+==64484== Conditional jump or move depends on uninitialised value(s)
+==64484==    at 0x109D80: ft_find_idx_number (ft_utils.c:89)
+==64484==    by 0x10AC97: ft_find_score_rb (ft_find_scores.c:55)
+==64484==    by 0x10AC26: ft_find_scores_simple (ft_find_scores.c:40)
+==64484==    by 0x10AB4D: ft_find_score (ft_find_scores.c:22)
+==64484==    by 0x10A379: ft_find_next (ft_count_sort.c:42)
+==64484==    by 0x10A291: ft_count_sort (ft_count_sort.c:26)
+==64484==    by 0x1092CB: main (push_swap.c:33)
+==64484== 
+==64484== Conditional jump or move depends on uninitialised value(s)
+==64484==    at 0x10A8AE: ft_push_next_rr (ft_push_next.c:42)
+==64484==    by 0x10A787: ft_push_next (ft_push_next.c:29)
+==64484==    by 0x10A2AC: ft_count_sort (ft_count_sort.c:27)
+==64484==    by 0x1092CB: main (push_swap.c:33)
+==64484== 
+==64484== 
+==64484== HEAP SUMMARY:
+==64484==     in use at exit: 0 bytes in 0 blocks
+==64484==   total heap usage: 503 allocs, 503 frees, 9,900 bytes allocated
+==64484== 
+==64484== All heap blocks were freed -- no leaks are possible
+==64484== 
+==64484== Use --track-origins=yes to see where uninitialised values come from
+==64484== For lists of detected and suppressed errors, rerun with: -s
+==64484== ERROR SUMMARY: 502 errors from 2 contexts (suppressed: 0 from 0)
