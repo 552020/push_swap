@@ -30,6 +30,10 @@ long int	ft_atol(const char *str)
 	}
 	while (ft_isdigit(str[i]))
 	{
+		if (isneg == 1 && nb > (INT_MAX - (str[i] - '0')) / 10)
+			ft_write_error();
+		else if (isneg == -1 && nb > ((INT_MIN + (str[i] - '0')) / -10))
+			ft_write_error();
 		nb = (nb * 10) + (str[i] - '0');
 		i++;
 	}
