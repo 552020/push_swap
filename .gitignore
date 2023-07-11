@@ -3,3 +3,4 @@
 *.a
 venv/*
 .vscode/tests/summary.txt
+a.out
