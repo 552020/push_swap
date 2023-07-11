@@ -67,3 +67,18 @@ int	ft_num_str_cmp(const char *s1, const char *s2)
 	//printf("s1[i] = %c\n", s1[i]);
 	return ((unsigned char)s1[i] - (unsigned char)s2[j]);
 }
+
+int	is_sorted(t_stack *stack)
+{
+	int	i;
+
+	i = 1;
+	while (i < stack->size) 
+	{
+		if (stack->stack[i] < stack->stack[i-1]) 
+			return (0);
+		i++;
+	}
+
+	exit (1);
+}

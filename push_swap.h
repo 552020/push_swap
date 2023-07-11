@@ -82,6 +82,7 @@ int					ft_check_zero(char *argv);
 int					ft_sneak_duplicate(char **argv);
 void				ft_write_error(void);
 int					ft_num_str_cmp(const char *s1, const char *s2);
+int					is_sorted(t_stack *stack);
 
 void				ft_selection(int *stack_a, int *size_a,
 						int *stack_b, int *size_b);

@@ -66,6 +66,7 @@ int ft_build_stacks(t_stack *stack_a, t_stack *stack_b, char **str_arr)
 		stack_a->stack[i] = ft_atol(str_arr[i]);
 		i++;
 	}
+	is_sorted(stack_a);
 	return (1);
 }
 
@@ -104,3 +105,5 @@ void ft_bring_highest_to_the_top(int *stack, int size_stack)
 			ft_rrb(stack, size_stack);
 	}
 }
+
+
