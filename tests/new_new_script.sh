@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Variables
-total_numbers=500
+total_numbers=5
 total_lines=1
 highest_value=0
 lowest_value=-1
