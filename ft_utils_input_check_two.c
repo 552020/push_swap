@@ -17,6 +17,7 @@ int	ft_sneak_duplicate(char **argv)
 	int	i;
 	int	j;
 
+	//printf("ft_sneak_duplicate\n");
 	i = 1;
 	while (argv[i])
 	{
@@ -29,6 +30,7 @@ int	ft_sneak_duplicate(char **argv)
 		}
 		i++;
 	}
+	//printf("ft_sneak_duplicate end\n");
 	return (0);
 }
 
@@ -43,6 +45,7 @@ int	ft_num_str_cmp(const char *s1, const char *s2)
 	int	i;
 	int	j;
 
+	//printf("ft_num_str_cmp\n");
 	i = 0;
 	j = i;
 	if (s1[i] == '+')
@@ -60,5 +63,7 @@ int	ft_num_str_cmp(const char *s1, const char *s2)
 		i++;
 		j++;
 	}
+	//printf("ft_num_str_cmp end\n");
+	//printf("s1[i] = %c\n", s1[i]);
 	return ((unsigned char)s1[i] - (unsigned char)s2[j]);
 }

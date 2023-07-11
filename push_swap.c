@@ -27,9 +27,13 @@ int main(int argc, char **argv)
 
 	stack_a.size = 0;
 	stack_b.size = 0;
-	if (!ft_check_input(argv))
-		ft_write_error();
+	//if (!ft_check_input(argv))
+	//	ft_write_error();
+	//printf("ft_check_passed\n");
 	str_arr = ft_build_str_arr(argc, argv, &stack_a);
+	if (!ft_check_input(str_arr))
+		ft_write_error();
+	//printf("ft_check_passed\n");
 	if (!ft_build_stacks(&stack_a, &stack_b, str_arr))
 		return (0);
 	if (stack_a.size > 3 && stack_a.size < 6)
