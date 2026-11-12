@@ -27,25 +27,29 @@ struct	s_stack
 	int	size;
 };
 
-typedef struct s_next{
+typedef struct s_next
+{
 	int	value;
 	int	rotation;
 }	t_next;
 
-typedef struct s_next_score{
+typedef struct s_next_score
+{
 	int	value;
 	int	rotation;
 	int	score;
 }	t_next_score;
 
-typedef struct s_scores_simple{
+typedef struct s_scores_simple
+{
 	int	ra;
 	int	rra;
 	int	rb;
 	int	rrb;
 }	t_scores_simple;
 
-typedef struct t_scores_combined{
+typedef struct t_scores_combined
+{
 	int	rr;
 	int	rrr;
 	int	ra_rrb;
