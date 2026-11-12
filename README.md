@@ -39,15 +39,6 @@ At this point it's important to note that it's not the actual number of operatio
 
 My approach to solving the Push_Swap project involved initially attempting a naive approach similar to a selection sort. This approach involved finding the smallest integer in stack A, bringing it to the top of the stack, and then pushing it to stack B. However, I quickly realized that this approach was not efficient enough to handle larger sets of integers.
 
-## TODO
-
-- [x] main algorithm
-- [x] algorighm for small sets
-- [x] norminette
-- [ ] check all headers before submitting
-- [ ] eventually integrate ft_printf in libft
-- [ ] improve the README
-
 ## Notes
 
 ### `:=` instead of `=`
