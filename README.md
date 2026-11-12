@@ -64,6 +64,16 @@ Complexity is mentioned in Chapter III. Discuss which kind of complexity we deal
 
 We have two kind of complexity: time complexity and space complexity. Time complexity is measured on the number of operations needed to perform the algorithm and space complexity refers to the memory needed to perform the algorithm.
 
+## Differences from the submitted version
+
+The version evaluated at 42 in July 2023 is archived as [push_swap_official](https://github.com/552020/push_swap_official). The program is the same. This repository differs in these points:
+
+- Layout: sources in `src/`, the header in `include/`, objects built in `obj/`, the subject and the Norm as PDFs in `docs/`, the 42 checker binaries and the test scripts in `tests/`. The submitted version had everything in the root.
+- The Makefile uses these paths and builds libft and ft_printf with `make -C`.
+- Norminette: the submitted version passed the norminette of 2023. The current one (3.3.58) also wants a newline before struct braces in `push_swap.h` and a space after `# include` in `libft.h`; both are fixed here.
+- Not part of the submission: this README, the test scripts, the Dockerfile for running Valgrind on an ARM Mac, and the `push_swap_visualizer` submodule.
+- Removed: compiled binaries, editor settings and `ft_archiv.c`, a file of old functions that was never built.
+
 ## Disclaimer about the Coding Style
 
 **Disclaimer:** This code has been written the "[The Norm](docs/en.norm.pdf)" of 42, which is a set of strict coding style rules. It aims to ensure consistency and readability of the codebase.
