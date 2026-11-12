@@ -17,7 +17,6 @@ int	ft_check_input(char **str_arr)
 	int	i;
 	int	tot_zeros;
 
-	//printf("ft_check_input\n");
 	tot_zeros = 0;
 	i = 1;
 	while (str_arr[i])
@@ -31,64 +30,49 @@ int	ft_check_input(char **str_arr)
 		return (0);
 	if (ft_sneak_duplicate(str_arr))
 		return (0);
-	//printf("ft_check_input end\n");
 	return (1);
 }
 
-int	ft_num_check(char *argv)
+int	ft_num_check(char *str_arr)
 {
 	int	i;
 
-	//printf("ft_num_check\n");
 	i = 0;
-	if (ft_issign(argv[i]) && argv[i + 1] != '\0')
+	if (ft_issign(str_arr[i]) && str_arr[i + 1] != '\0')
 		i++;
-	while (argv[i] && ft_isdigit(argv[i]))
+	while (str_arr[i] && ft_isdigit(str_arr[i]))
 		i++;
-	if (argv[i] != '\0' && !ft_isdigit(argv[i]))
+	if (str_arr[i] != '\0' && !ft_isdigit(str_arr[i]))
 		return (0);
-	//printf("ft_num_check end\n");
 	return (1);
 }
 
 int	ft_issign(int c)
 {
-	//printf("ft_issign\n");	
 	if (c == '+' || c == '-')
 		return (1);
 	else
-	{
-		//printf("ft_issign end\n");
 		return (0);
-		
-
-	}
 }
 
 int	ft_isdigit(int c)
 {
-	//printf("ft_isdigit\n");
 	if (c >= '0' && c <= '9')
 		return (1);
 	else
-	{
-		//printf("ft_isdigit end\n");
 		return (0);
-	}
 }
 
-int	ft_check_zero(char *argv)
+int	ft_check_zero(char *str_arr)
 {
 	int	i;
 
-	//printf("ft_check_zero\n");
 	i = 0;
-	if (ft_issign(argv[i]))
+	if (ft_issign(str_arr[i]))
 		i++;
-	while (argv[i] && argv[i] == '0')
+	while (str_arr[i] && str_arr[i] == '0')
 		i++;
-	if (argv[i] != '\0')
+	if (str_arr[i] != '\0')
 		return (0);
-	//printf("ft_check_zero end\n");
 	return (1);
 }

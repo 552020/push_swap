@@ -12,9 +12,9 @@
 
 #include "push_swap.h"
 
-int ft_find_idx_number_new(t_stack *stack, int number)
+int	ft_find_idx_number_new(t_stack *stack, int number)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (number != stack->stack[i])
@@ -22,13 +22,13 @@ int ft_find_idx_number_new(t_stack *stack, int number)
 	return (i);
 }
 
-void ft_small_sort(t_stack *stack_a)
+void	ft_small_sort(t_stack *stack_a)
 {
-	int smallest;
-	int largest;
+	int	smallest;
+	int	largest;
 
 	if ((*stack_a).size == 1)
-		return;
+		return ;
 	largest = ft_find_highest(stack_a->stack, stack_a->size);
 	smallest = ft_find_smallest(stack_a->stack, stack_a->size);
 	if (stack_a->stack[0] == largest && stack_a->stack[1] == smallest)
@@ -50,10 +50,10 @@ void ft_small_sort(t_stack *stack_a)
 		ft_rra(stack_a->stack, stack_a->size);
 }
 
-void ft_medium_sort(t_stack *stack_a, t_stack *stack_b)
+void	ft_medium_sort(t_stack *stack_a, t_stack *stack_b)
 {
-	int smallest;
-	int idx_smallest;
+	int	smallest;
+	int	idx_smallest;
 
 	while (stack_a->size > 3)
 	{

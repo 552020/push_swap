@@ -19,5 +19,5 @@ for (( i=0; i<$TIMES_TO_RUN; i++ ))
 do
     ARG=$(generate_random_numbers)
     echo "Running with ARG: $ARG"
-    ../push_swap $ARG | ../checker_linux $ARG
+    ../push_swap $ARG | ./checker_linux $ARG
 done

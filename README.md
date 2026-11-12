@@ -2,7 +2,7 @@
 
 ## Overview
 
-[Push_Swap](./en.subject.pdf) is a project of the [School 42](https://www.42berlin.de/) about sorting numbers on a 'stack' A, with the help of auxiliary stack B and using a restricted set of instructions, which are:
+[Push_Swap](docs/en.subject.pdf) is a project of the [School 42](https://www.42berlin.de/) about sorting numbers on a 'stack' A, with the help of auxiliary stack B and using a restricted set of instructions, which are:
 
 - _sa_: Swap the top two elements of stack A. (Swap A)
 - _sb_: Swap the top two elements of stack B. (Swap B)
@@ -75,7 +75,7 @@ We have two kind of complexity: time complexity and space complexity. Time compl
 
 ## Disclaimer about the Coding Style
 
-**Disclaimer:** This code has been written the "[The Norm](./en.norm.pdf)" of 42, which is a set of strict coding style rules. It aims to ensure consistency and readability of the codebase.
+**Disclaimer:** This code has been written the "[The Norm](docs/en.norm.pdf)" of 42, which is a set of strict coding style rules. It aims to ensure consistency and readability of the codebase.
 
 The following are some of the principal rules enforced by the Norm:
 

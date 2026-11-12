@@ -25,7 +25,7 @@ do
         ARG=$(generate_random_numbers $ARG_SIZE)
         PRESENT_LINE="Running with $ARG_SIZE ARG: $ARG"
         echo "$PRESENT_LINE"
-        OUTPUT=$(../push_swap $ARG | ../checker_linux $ARG)
+        OUTPUT=$(../push_swap $ARG | ./checker_linux $ARG)
         echo "$OUTPUT"
         if [[ $OUTPUT == *"KO"* ]]; then
             KO_SUMMARY+="$PREVIOUS_LINE\n$OUTPUT\n"

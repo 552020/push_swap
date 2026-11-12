@@ -13,3 +13,4 @@ a.out
 # misc
 venv/
 imgui.ini
+obj/

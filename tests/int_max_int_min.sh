@@ -18,9 +18,9 @@ generate_random_numbers() {
 # Run with number greater than INT_MAX
 ARG=$(generate_random_numbers $((INT_MAX + 1)))
 echo "Running with ARG: $ARG"
-../push_swap $ARG | ../checker_linux $ARG
+../push_swap $ARG | ./checker_linux $ARG
 
 # Run with number smaller than INT_MIN
 ARG=$(generate_random_numbers $((INT_MIN - 1)))
 echo "Running with ARG: $ARG"
-../push_swap $ARG | ../checker_linux $ARG
+../push_swap $ARG | ./checker_linux $ARG

@@ -19,7 +19,7 @@
 # include <limits.h>
 # include <stdarg.h>
 # include <stdint.h>
-# include "./libft/libft.h"
+# include "libft.h"
 
 struct	s_stack
 {
