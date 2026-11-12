@@ -1,5 +1,15 @@
-*.sw*
+# build
 *.o
 *.a
-venv/*
-.vscode/tests/summary.txt
+push_swap
+a.out
+*.dSYM/
+
+# editors
+*.sw*
+.vscode/
+.DS_Store
+
+# misc
+venv/
+imgui.ini
